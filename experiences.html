@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facilities &amp; Experiences — Mbeya Forest Hill Motel</title>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.feature{ display:grid; grid-template-columns:1fr 1fr; gap:0; align-items:stretch; }
+.feature .media{ position:relative; overflow:hidden; min-height:480px; }
+.feature .media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.feature:hover .media img{ transform:scale(1.05); }
+.feature .copy{ display:flex; flex-direction:column; justify-content:center; padding:clamp(2rem,5vw,5rem); }
+.feature.flip .media{ order:2; }
+.feature .copy .num{ font-family:var(--font-display); font-size:1.1rem; color:var(--accent); letter-spacing:.1em; margin-bottom:.6rem; }
+.feature.dark{ background:var(--dark); color:var(--on-dark); }
+.feature.dark h2{ color:#fff; }
+.feature.dark .muted{ color:var(--on-dark-soft); }
+.tag-row{ display:flex; flex-wrap:wrap; gap:.6rem; margin:1.4rem 0; }
+.tag{ font-size:.7rem; text-transform:uppercase; letter-spacing:.14em; border:1px solid var(--line); padding:.5em 1em; color:var(--ink-soft); transition:.3s; }
+.tag:hover{ border-color:var(--accent); color:var(--accent-deep); }
+.feature.dark .tag{ border-color:rgba(240,236,230,.22); color:var(--on-dark-soft); }
+.gastro-gal{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.gastro-gal img{ width:100%; aspect-ratio:3/4; object-fit:cover; }
+@media(max-width:860px){ .feature{ grid-template-columns:1fr; } .feature.flip .media{ order:0; } .feature .media{ min-height:340px; } .gastro-gal{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div data-site-header></div>
+
+<section class="page-hero" data-screen-label="Experiences — Hero">
+  <img class="bg" src="./assets/images/experiences-image.jpg" alt="Mbeya Forest Hill experiences">
+  <div class="wrap">
+    <span class="eyebrow light">Facilities &amp; Experiences</span>
+    <h1 class="display fw-light" style="margin-top:1rem">Everything You Need, On Site</h1>
+    <p style="color:rgba(255,255,255,.82);max-width:48ch;margin-top:1rem">From the indoor pool and sauna to the restaurant, fitness centre, and conference room — Mbeya Forest Hill Motel has all the facilities to make your stay complete.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Experiences</span></div>
+  </div>
+</section>
+
+<!-- POOL & SAUNA -->
+<section class="feature" data-screen-label="Experiences — Pool">
+  <div class="media"><img src="./assets/images/experiences-pool.jpg" alt="Indoor pool"></div>
+  <div class="copy" data-reveal>
+    <div class="num">01 — Wellness</div>
+    <span class="eyebrow">Indoor Pool &amp; Sauna</span>
+    <h2 class="display" style="margin:1rem 0 1.2rem">Relax and recharge at any time</h2>
+    <p class="lede">Dive into our heated indoor swimming pool or melt away the day's journey in the sauna. The pool and terrace area are available to all guests throughout their stay — no additional booking required.</p>
+    <div class="tag-row"><span class="tag">Indoor Heated Pool</span><span class="tag">Sauna</span><span class="tag">Terrace</span><span class="tag">Spa Bath</span></div>
+    <a class="link-arrow" href="booking.html">Book Your Stay →</a>
+  </div>
+</section>
+
+<!-- FITNESS -->
+<section class="feature flip dark" data-screen-label="Experiences — Fitness">
+  <div class="media"><img src="./assets/images/experiences-fitness-image.jpg" alt="Fitness centre"></div>
+  <div class="copy" data-reveal>
+    <div class="num">02 — Active</div>
+    <span class="eyebrow light">Fitness Centre</span>
+    <h2 class="display" style="margin:1rem 0 1.2rem">Keep your routine going in Mbeya</h2>
+    <p class="lede" style="color:var(--on-dark-soft)">Our fully equipped fitness room features treadmills and exercise machines to keep you active during your stay. Open daily and included for all guests — no gym fees, no sign-up required.</p>
+    <div class="tag-row"><span class="tag">Treadmills</span><span class="tag">Exercise Machines</span><span class="tag">Daily Access</span><span class="tag">Free for Guests</span></div>
+    <a class="link-arrow" href="booking.html" style="color:var(--accent);border-color:rgba(240,236,230,.3)">Reserve a Room →</a>
+  </div>
+</section>
+
+<!-- CONFERENCE -->
+<section class="feature" data-screen-label="Experiences — Conference">
+  <div class="media"><img src="./assets/images/experiences-business-image.jpg" alt="Conference room"></div>
+  <div class="copy" data-reveal>
+    <div class="num">03 — Business</div>
+    <span class="eyebrow">Meetings &amp; Events</span>
+    <h2 class="display" style="margin:1rem 0 1.2rem">A professional space in the heart of Mbeya</h2>
+    <p class="lede">Our dedicated conference room is equipped for seminars, corporate meetings, training sessions, and private events. With a large table, comfortable seating, and full AV support — your business runs smoothly here.</p>
+    <div class="tag-row"><span class="tag">Conference Room</span><span class="tag">AV Equipment</span><span class="tag">Private Events</span><span class="tag">Catering Available</span></div>
+    <a class="link-arrow" href="contact.html">Enquire Now →</a>
+  </div>
+</section>
+
+<!-- RESTAURANT -->
+<section class="section dark-section" data-screen-label="Experiences — Restaurant">
+  <div class="wrap-wide">
+    <div class="split" style="margin-bottom:3rem">
+      <div data-reveal>
+        <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--accent);letter-spacing:.1em;margin-bottom:.6rem">04 — Dining</div>
+        <span class="eyebrow light">Restaurant &amp; Bar</span>
+        <h2 class="display" style="color:#fff;margin:1rem 0 1.2rem">A full buffet and a welcoming bar every day</h2>
+        <p class="muted">Every stay at Forest Hill begins with a generous buffet breakfast — Full English, Irish, vegetarian, and Asian options prepared fresh each morning. In the evenings, our restaurant and lounge bar offer a relaxed dining experience with room service also available.</p>
+        <a class="btn btn--ghost-light" style="margin-top:1.8rem" href="contact.html">Make a Dining Enquiry</a>
+      </div>
+      <div class="gastro-gal" data-reveal>
+        <img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img6.webp" alt="Dining">
+        <img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img7.webp" alt="Lounge">
+        <img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img8.webp" alt="Breakfast">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="amen-feature" style="min-height:440px" data-screen-label="Experiences — CTA">
+  <img src="./assets/images/experiences-above-footer.jpg" alt="Forest Hill Motel room">
+  <div class="wrap" style="text-align:center;margin-inline:auto">
+    <span class="eyebrow center light">Ready to book</span>
+    <h2 class="display" style="color:#fff;max-width:22ch;margin:1.1rem auto 2rem">All facilities included — book your room at Forest Hill today</h2>
+    <a class="btn btn--accent" href="booking.html">Reserve Your Room</a>
+  </div>
+</section>
+
+<div data-site-footer></div>
+
+<script>window.CARMELINA = { active:'experiences', transparentHeader:true };</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

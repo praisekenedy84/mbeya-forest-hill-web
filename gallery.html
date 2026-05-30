@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery — Mbeya Forest Hill Motel</title>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.chips{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-bottom:2.6rem; }
+.chip{ font-size:.7rem; text-transform:uppercase; letter-spacing:.16em; padding:.7em 1.4em; border:1px solid var(--line); background:transparent; color:var(--ink-soft); transition:.3s; }
+.chip:hover{ border-color:var(--accent); color:var(--ink); }
+.chip.active{ background:var(--dark); border-color:var(--dark); color:#fff; }
+.bento{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:220px; gap:14px; grid-auto-flow:dense; }
+.cell{ position:relative; overflow:hidden; cursor:pointer; background:var(--bg-alt); }
+.cell img{ width:100%; height:100%; object-fit:cover; transition:transform 1s cubic-bezier(.2,.7,.2,1); }
+.cell:hover img{ transform:scale(1.07); }
+.cell::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(20,18,13,0) 55%,rgba(20,18,13,.6) 100%); opacity:0; transition:.4s; }
+.cell:hover::after{ opacity:1; }
+.cell .cap{ position:absolute; left:0; bottom:0; z-index:2; padding:1.1rem 1.3rem; color:#fff; opacity:0; transform:translateY(8px); transition:.4s; }
+.cell:hover .cap{ opacity:1; transform:none; }
+.cell .cap .ct{ font-family:var(--font-display); font-size:1.3rem; }
+.cell .cap .cs{ font-size:.66rem; text-transform:uppercase; letter-spacing:.18em; color:var(--accent); }
+.cell .plus{ position:absolute; top:1rem; right:1rem; z-index:2; width:40px; height:40px; border:1px solid rgba(255,255,255,.6); border-radius:50%; display:grid; place-items:center; color:#fff; opacity:0; transition:.4s; }
+.cell:hover .plus{ opacity:1; }
+.w2{ grid-column:span 2; } .h2{ grid-row:span 2; }
+@media(max-width:900px){ .bento{ grid-template-columns:repeat(2,1fr); grid-auto-rows:200px; } .w2{ grid-column:span 2; } .h2{ grid-row:span 1; } }
+@media(max-width:560px){ .bento{ grid-template-columns:1fr; } .w2,.h2{ grid-column:auto; grid-row:auto; } }
+
+/* lightbox */
+.lb{ position:fixed; inset:0; z-index:160; background:rgba(15,13,9,.92); display:grid; place-items:center; opacity:0; visibility:hidden; transition:.35s; }
+.lb.open{ opacity:1; visibility:visible; }
+.lb img{ max-width:90vw; max-height:82vh; object-fit:contain; box-shadow:0 30px 80px -20px rgba(0,0,0,.6); }
+.lb-x{ position:absolute; top:1.5rem; right:1.8rem; background:none; border:none; color:#fff; font-size:2rem; }
+.lb-nav{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.3); color:#fff; width:54px; height:54px; border-radius:50%; font-size:1.4rem; transition:.3s; }
+.lb-nav:hover{ background:var(--accent); border-color:var(--accent); }
+.lb-prev{ left:2rem; } .lb-next{ right:2rem; }
+.lb-cap{ position:absolute; bottom:1.6rem; left:0; right:0; text-align:center; color:rgba(255,255,255,.75); font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; }
+@media(max-width:560px){ .lb-nav{ width:44px;height:44px; } .lb-prev{left:.6rem;} .lb-next{right:.6rem;} }
+</style>
+</head>
+<body>
+<div data-site-header></div>
+
+<section class="page-hero" style="min-height:46vh" data-screen-label="Gallery — Hero">
+  <img class="bg" src="./assets/images/gallery-hero.jpg" alt="Gallery">
+  <div class="wrap">
+    <span class="eyebrow light">Moments at Mbeya Forest Hill</span>
+    <h1 class="display fw-light" style="margin-top:1rem">Gallery</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Gallery</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap-wide">
+    <div class="chips" id="chips">
+      <button class="chip active" data-f="all">All</button>
+      <button class="chip" data-f="rooms">Rooms</button>
+      <button class="chip" data-f="dining">Dining</button>
+      <button class="chip" data-f="wellness">Wellness</button>
+      <button class="chip" data-f="resort">Resort &amp; Views</button>
+    </div>
+    <div class="bento" id="bento"></div>
+  </div>
+</section>
+
+<div class="lb" id="lb">
+  <button class="lb-x" data-lb-close aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" data-lb-prev aria-label="Previous">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" data-lb-next aria-label="Next">›</button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<div data-site-footer></div>
+
+<script>window.CARMELINA = { active:'gallery', transparentHeader:true };</script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  const G='./assets/images/gallery/';
+  // {src, cat, title, span}
+  const items=[
+    {src:G+'resort-garden-villa.jpg',   cat:'resort',   title:'Garden Villa',        span:'w2 h2'},
+    {src:G+'rooms-double-bed.jpg',      cat:'rooms',    title:'Double Bed Room'},
+    {src:G+'dining-table-setting.jpg',  cat:'dining',   title:'Table Setting'},
+    {src:G+'wellness-multigym.jpg',     cat:'wellness', title:'Fitness Studio',      span:'h2'},
+    {src:G+'rooms-suite-bed.jpg',       cat:'rooms',    title:'Suite Bedroom'},
+    {src:G+'resort-exterior.jpg',       cat:'resort',   title:'Motel Exterior'},
+    {src:G+'dining-restaurant.jpg',     cat:'dining',   title:'The Restaurant',      span:'w2'},
+    {src:G+'rooms-single-bed.jpg',      cat:'rooms',    title:'Single Room'},
+    {src:G+'wellness-cardio.jpg',       cat:'wellness', title:'Cardio Zone',         span:'h2'},
+    {src:G+'resort-courtyard.jpg',      cat:'resort',   title:'Courtyard',           span:'w2'},
+    {src:G+'rooms-twin-bed.jpg',        cat:'rooms',    title:'Twin Room'},
+    {src:G+'dining-bar.jpg',            cat:'dining',   title:'The Bar'},
+    {src:G+'wellness-weights.jpg',      cat:'wellness', title:'Free Weights'},
+    {src:G+'resort-garden-villa.jpg',   cat:'resort',   title:'Palm Gardens'},
+    {src:G+'rooms-cozy-bed.jpg',        cat:'rooms',    title:'Cozy Double',         span:'h2'},
+    {src:G+'dining-lounge.jpg',         cat:'dining',   title:'Dining Lounge'},
+    {src:G+'resort-pavilion.jpg',       cat:'resort',   title:'Pool Pavilion',       span:'w2'},
+    {src:G+'rooms-bathroom-vanity.jpg', cat:'rooms',    title:'En-suite Vanity'},
+    {src:G+'wellness-gym.jpg',          cat:'wellness', title:'The Gym'},
+    {src:G+'dining-bar-counter.jpg',    cat:'dining',   title:'Bar Counter'},
+    {src:G+'resort-cottage.jpg',        cat:'resort',   title:'Garden Cottage',      span:'h2'},
+    {src:G+'rooms-bedside.jpg',         cat:'rooms',    title:'Bedside Comfort'},
+    {src:G+'dining-area.jpg',           cat:'dining',   title:'Dining Area'},
+    {src:G+'wellness-treadmill.jpg',    cat:'wellness', title:'Treadmill Bay'},
+    {src:G+'resort-grounds.jpg',        cat:'resort',   title:'The Grounds',         span:'w2'},
+    {src:G+'rooms-shower.jpg',          cat:'rooms',    title:'Rainfall Shower'},
+    {src:G+'resort-lounge.jpg',         cat:'resort',   title:'Guest Lounge'},
+    {src:G+'wellness-fitness-club.jpg', cat:'wellness', title:'Fitness & Health Club'},
+    {src:G+'resort-entrance-sign.jpg',  cat:'resort',   title:'Welcome to Mbeya Forest Hill'},
+  ];
+
+  const bento=document.getElementById('bento');
+  let active='all', visible=[];
+
+  function render(){
+    visible=items.filter(it=>active==='all'||it.cat===active);
+    bento.innerHTML=visible.map((it,i)=>`
+      <figure class="cell ${it.span||''}" data-i="${i}">
+        <img src="${it.src}" alt="${it.title}" loading="lazy">
+        <span class="plus">+</span>
+        <figcaption class="cap"><span class="cs">${it.cat}</span><br><span class="ct">${it.title}</span></figcaption>
+      </figure>`).join('');
+  }
+
+  document.getElementById('chips').addEventListener('click',e=>{
+    const c=e.target.closest('.chip'); if(!c)return;
+    document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active')); c.classList.add('active');
+    active=c.dataset.f; render();
+  });
+
+  // lightbox
+  const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap');
+  let cur=0;
+  function open(i){ cur=i; lbImg.src=visible[i].src; lbCap.textContent=visible[i].title+' · '+visible[i].cat; lb.classList.add('open'); }
+  function step(d){ cur=(cur+d+visible.length)%visible.length; open(cur); }
+  bento.addEventListener('click',e=>{ const f=e.target.closest('.cell'); if(f) open(+f.dataset.i); });
+  document.querySelector('[data-lb-close]').addEventListener('click',()=>lb.classList.remove('open'));
+  document.querySelector('[data-lb-prev]').addEventListener('click',()=>step(-1));
+  document.querySelector('[data-lb-next]').addEventListener('click',()=>step(1));
+  lb.addEventListener('click',e=>{ if(e.target===lb) lb.classList.remove('open'); });
+  document.addEventListener('keydown',e=>{ if(!lb.classList.contains('open'))return; if(e.key==='Escape')lb.classList.remove('open'); if(e.key==='ArrowLeft')step(-1); if(e.key==='ArrowRight')step(1); });
+
+  render();
+})();
+</script>
+</body>
+</html>

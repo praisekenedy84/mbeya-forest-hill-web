@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — Mbeya Forest Hill Motel</title>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.val-card{ background:var(--paper); border:1px solid var(--line-soft); padding:2.2rem; display:flex; flex-direction:column; gap:1rem; transition:var(--trans); box-shadow:var(--shadow-card); }
+.val-card:hover{ box-shadow:var(--shadow-soft); transform:translateY(-4px); }
+.val-card .vi{ width:52px; height:52px; border-radius:50%; border:1px solid var(--accent); color:var(--accent-deep); display:grid; place-items:center; }
+.val-card h3{ font-size:1.4rem; }
+.stat-band{ display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+.stat-band .stat{ border-left:1px solid var(--line); padding-left:1.6rem; text-align:left; }
+.stat-band .stat:first-child{ border-left:none; padding-left:0; }
+.story-img{ position:relative; aspect-ratio:4/3; overflow:hidden; }
+.story-img img{ width:100%; height:100%; object-fit:cover; }
+.story-play{ position:absolute; inset:0; display:grid; place-items:center; }
+.story-play .pb{ width:78px; height:78px; border-radius:50%; background:rgba(255,255,255,.9); display:grid; place-items:center; color:var(--dark); transition:.4s; }
+.story-play .pb:hover{ background:var(--accent); color:#fff; transform:scale(1.06); }
+.sign{ height:56px; margin-top:1.4rem; filter:contrast(1.1); }
+.choose-list{ display:grid; grid-template-columns:1fr 1fr; gap:.7rem 1.6rem; margin:1.6rem 0; }
+.choose-list li{ display:flex; gap:.6em; align-items:center; color:var(--ink-soft); font-size:.95rem; }
+.choose-list .tick{ color:var(--accent-deep); }
+.svc-card{ position:relative; overflow:hidden; min-height:380px; display:flex; align-items:flex-end; color:var(--on-dark); }
+.svc-card img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 1.1s cubic-bezier(.2,.7,.2,1); }
+.svc-card::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(20,18,13,0) 35%,rgba(20,18,13,.85) 100%); }
+.svc-card:hover img{ transform:scale(1.06); }
+.svc-card .sb{ position:relative; z-index:2; padding:2rem; }
+.svc-card .sb h3{ color:#fff; margin-bottom:.5rem; }
+.svc-card .sb p{ color:var(--on-dark-soft); font-size:.9rem; margin-bottom:1rem; }
+@media(max-width:680px){ .stat-band{ grid-template-columns:1fr; } .stat-band .stat{ border-left:none; padding-left:0; } .choose-list{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div data-site-header></div>
+
+<section class="page-hero" data-screen-label="About — Hero">
+  <img class="bg" src="./assets/images/about-section-image.jpg" alt="About Mbeya Forest Hill Motel">
+  <div class="wrap">
+    <span class="eyebrow light">Welcome to Forest Hill</span>
+    <h1 class="display fw-light" style="margin-top:1rem">Comfort and convenience in the hills of Mbeya</h1>
+    <p style="color:rgba(255,255,255,.82);max-width:54ch;margin-top:1rem">Located just 1.9 kilometres from Mbeya Airport, Mbeya Forest Hill Motel is your home away from home in Southern Tanzania — welcoming families, business travellers, and visitors alike.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>About Us</span></div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section" data-screen-label="About — Values">
+  <div class="wrap-wide">
+    <div class="grid g-3">
+      <div class="val-card" data-reveal>
+        <div class="vi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 class="display">Free Airport Shuttle</h3>
+        <p class="muted" style="font-size:.94rem">We offer complimentary transfers to and from Mbeya Airport, located just 1.9 kilometres away — no hidden fees, available for all guests.</p>
+      </div>
+      <div class="val-card" data-reveal>
+        <div class="vi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <h3 class="display">Children of All Ages Welcome</h3>
+        <p class="muted" style="font-size:.94rem">No age restriction at check-in. Children are warmly welcomed, and pets stay free — making Forest Hill a true home for the whole family.</p>
+      </div>
+      <div class="val-card" data-reveal>
+        <div class="vi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9h18M3 9l2-5h14l2 5M5 9v11h14V9"/><path d="M9 13h6"/></svg></div>
+        <h3 class="display">Full Room Amenities</h3>
+        <p class="muted" style="font-size:.94rem">Every room includes air-conditioning, private bathroom, work desk, TV, and free WiFi — with garden views and daily housekeeping as standard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" style="background:var(--bg-alt);padding-block:clamp(48px,7vh,80px)" data-screen-label="About — Stats">
+  <div class="wrap-wide">
+    <div class="stat-band">
+      <div class="stat" data-reveal><div class="num"><span data-count="4" data-suffix="">0</span></div><div class="lbl">Room types — from our Economy Bedroom to the VIP Suite.</div></div>
+      <div class="stat" data-reveal><div class="num"><span data-count="10" data-suffix="+">0</span></div><div class="lbl">On-site facilities including pool, sauna, gym, restaurant, and bar.</div></div>
+      <div class="stat" data-reveal><div class="num"><span data-count="1" data-suffix=".9km">0</span></div><div class="lbl">From Mbeya Airport — with our complimentary shuttle running daily.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section" data-screen-label="About — Story">
+  <div class="wrap-wide">
+    <div class="split">
+      <div class="story-img" data-reveal>
+        <img src="./assets/images/about-us-our-story.jpg" alt="Mbeya Forest Hill story">
+        <div class="story-play"><a class="pb" href="experiences.html" aria-label="Play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></a></div>
+      </div>
+      <div data-reveal>
+        <span class="eyebrow">Our story</span>
+        <h2 class="display" style="margin:1rem 0 1.2rem">A welcoming retreat in the heart of Southern Tanzania.</h2>
+        <p class="lede">Mbeya Forest Hill Motel was built to offer travellers in Mbeya a comfortable, well-equipped base — whether arriving for business, family visits, or to explore the stunning landscapes of Southern Tanzania's highlands.</p>
+        <p class="muted" style="margin-top:1rem">From our indoor pool and fitness centre to our buffet restaurant and free airport shuttle, every detail is designed to make your stay easy and enjoyable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="section dark-section" data-screen-label="About — Why choose us">
+  <div class="wrap-wide">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow light">Why choose us</span>
+        <h2 class="display" style="color:#fff;margin:1rem 0 1.2rem">Everything included — no hidden extras</h2>
+        <p class="muted">At Forest Hill Motel, our most popular amenities come standard with every room booking — so you can relax without surprises at checkout.</p>
+        <ul class="choose-list">
+          <li><span class="tick">✓</span> Buffet breakfast included</li>
+          <li><span class="tick">✓</span> Free WiFi in all rooms</li>
+          <li><span class="tick">✓</span> Indoor swimming pool</li>
+          <li><span class="tick">✓</span> Free airport shuttle</li>
+          <li><span class="tick">✓</span> Free private parking</li>
+          <li><span class="tick">✓</span> Pets welcome — no charge</li>
+        </ul>
+        <a class="btn btn--ghost-light" href="rooms.html">Read More</a>
+      </div>
+      <div class="story-img" data-reveal style="aspect-ratio:3/4">
+        <img src="./assets/images/about-why-choose-us-image.jpg" alt="Suite">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" data-screen-label="About — Services">
+  <div class="wrap-wide">
+    <div class="center" style="margin-bottom:3rem" data-reveal>
+      <span class="eyebrow center">What we offer</span>
+      <h2 class="display" style="margin-top:1rem">A house of many pleasures</h2>
+    </div>
+    <div class="grid g-3">
+      <a class="svc-card" href="experiences.html" data-reveal><img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img6.webp" alt="Restaurant"><div class="sb"><h3 class="display">Restaurant &amp; Bar</h3><p>On-site dining with full buffet breakfast and evening meals. Bar, lounge, and room service available.</p><span class="link-arrow" style="color:var(--accent);border-color:rgba(237,230,216,.3)">Read More →</span></div></a>
+      <a class="svc-card" href="experiences.html" data-reveal><img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/743884568.jpg?k=0a80a5b124218ff8e0f46fd993ba6f221912e5f29c8b1382fcf258ceb020223e&o=" alt="Pool"><div class="sb"><h3 class="display">Pool &amp; Sauna</h3><p>Indoor heated swimming pool open daily, complemented by a sauna and terrace for total relaxation.</p><span class="link-arrow" style="color:var(--accent);border-color:rgba(237,230,216,.3)">Read More →</span></div></a>
+      <a class="svc-card" href="experiences.html" data-reveal><img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/744378060.jpg?k=5bc246ca49211f958402ddd3b93c2703ded0e1b1c770f5b4c0227ee394a5ed42&o=" alt="Conference room"><div class="sb"><h3 class="display">Meetings &amp; Events</h3><p>Dedicated conference room with AV support — ideal for business meetings, seminars, and private events.</p><span class="link-arrow" style="color:var(--accent);border-color:rgba(237,230,216,.3)">Read More →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="background:var(--bg-alt)" data-screen-label="About — Testimonials">
+  <div class="wrap-wide">
+    <div class="center" style="margin-bottom:3rem" data-reveal>
+      <span class="eyebrow center">Guest stories</span>
+      <h2 class="display" style="margin-top:1rem">In their words</h2>
+    </div>
+    <div class="grid g-3">
+      <div class="quote-card" data-reveal><div class="stars">★★★★</div><h4>Great value for Mbeya</h4><p>Good value for the price. The pool was a nice bonus and the buffet breakfast was generous. Staff were friendly and helpful throughout.</p><div class="who">Guest · Booking.com</div></div>
+      <div class="quote-card" data-reveal><div class="stars">★★★★</div><h4>Airport shuttle made arrival easy</h4><p>The free airport transfer was very convenient. Room had working AC, hot water, and WiFi — everything a business traveller needs.</p><div class="who">Business Traveller · Tanzania</div></div>
+      <div class="quote-card" data-reveal><div class="stars">★★★★</div><h4>Ideal family stop in Mbeya</h4><p>Brought three kids and a dog. The family room was roomy and pets were genuinely welcome at no extra charge. We appreciated the outdoor space.</p><div class="who">Family Guest · Tanzania</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="amen-feature" style="min-height:420px" data-screen-label="About — CTA">
+  <img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2025/06/img1-ab-h1.webp" alt="">
+  <div class="wrap">
+    <span class="eyebrow light">Reservations</span>
+    <h2 class="display" style="color:#fff;max-width:20ch;margin:1.1rem 0 .6rem">How to find us?</h2>
+    <p class="muted" style="max-width:40ch;color:rgba(237,230,216,.8)">Forest Hill Road, 53103 Mbeya, Tanzania — 1.9 km from Mbeya Airport.</p>
+    <div style="display:flex;gap:1rem;margin-top:1.8rem;flex-wrap:wrap">
+      <a class="btn btn--accent" href="booking.html">Book Room Today</a>
+      <a class="btn btn--ghost-light" href="contact.html">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+
+<script>window.CARMELINA = { active:'about', transparentHeader:true };</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

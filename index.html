@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mbeya Forest Hill Motel — Mbeya, Tanzania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* ---- Home hero — matches demo dark overlay + uppercase H1 ---- */
+.hero{ position:relative; min-height:100vh; display:flex; align-items:center; color:var(--on-dark); overflow:hidden; }
+.hero .hero-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform:scale(1.07); animation:heroZoom 16s ease forwards; }
+@keyframes heroZoom{ to{ transform:scale(1); } }
+/* Demo uses #030709 overlay at ~50% — recreated here */
+.hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(108deg, rgba(3,7,9,.72) 0%, rgba(3,7,9,.44) 52%, rgba(3,7,9,.22) 100%); }
+.hero .wrap{ position:relative; z-index:3; width:100%; padding-top:120px; padding-bottom:clamp(80px,14vh,140px); }
+/* Hero H1: uppercase, tight, large — matches demo (75px / text-transform:uppercase) */
+.hero h1{
+  color:#fff; max-width:14ch; margin:.6rem 0 1.6rem;
+  text-transform:uppercase; letter-spacing:.04em; line-height:.98;
+}
+.hero .hero-lede{ color:rgba(255,255,255,.76); max-width:46ch; font-size:.97rem; line-height:1.78; }
+.hero-cta{ display:flex; gap:1rem; margin-top:2.8rem; flex-wrap:wrap; }
+.hero-side{ position:absolute; right:var(--gutter); top:50%; transform:translateY(-50%); z-index:3; writing-mode:vertical-rl; font-size:.66rem; letter-spacing:.44em; text-transform:uppercase; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:1.4rem; }
+.hero-side .ln{ height:80px; width:1px; background:rgba(255,255,255,.3); }
+.hero-rating{ position:absolute; left:var(--gutter); bottom:clamp(60px,10vh,100px); z-index:3; display:flex; align-items:center; gap:1rem; color:#fff; }
+.hero-rating .stars{ color:var(--accent); letter-spacing:.18em; font-size:1rem; }
+
+/* booking dock — sits naturally below the hero, no overlap */
+.booking-dock{ position:relative; z-index:20; }
+@media(max-width:900px){ .hero .wrap{ padding-bottom:80px; } .hero-rating{ bottom:120px; } }
+
+/* about collage */
+.about-collage{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:14px; }
+.about-collage img{ width:100%; height:100%; object-fit:cover; }
+.about-collage .tall{ grid-row:span 2; aspect-ratio:3/4.4; }
+.about-collage .sq{ aspect-ratio:1/1; }
+.about-collage .wide{ grid-column:2; aspect-ratio:3/2.2; }
+
+/* experiences strip */
+.exp-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+@media(max-width:900px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+@media(max-width:560px){ .exp-grid{ grid-template-columns:1fr; } }
+
+/* restaurant feature */
+.resto-imgs{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.resto-imgs img{ width:100%; height:100%; object-fit:cover; }
+.resto-imgs .a{ aspect-ratio:3/4; grid-row:span 2; }
+.resto-imgs .b{ aspect-ratio:1/1; }
+
+/* perks dark band */
+.perk{ display:flex; flex-direction:column; gap:.6rem; }
+.perk .pn{ font-family:var(--font-display); font-size:1.6rem; color:#fff; }
+.perk .pd{ color:var(--on-dark-soft); font-size:.9rem; line-height:1.65; }
+.perk .pi{
+  width:48px; height:48px; border-radius:50%;
+  border:1px solid rgba(170,153,138,.45); color:var(--accent);
+  display:grid; place-items:center; margin-bottom:.4rem;
+  background:rgba(170,153,138,.08); transition:var(--trans);
+}
+.perk:hover .pi{ background:var(--accent); color:#fff; border-color:var(--accent); }
+
+/* amenity feature band — matches demo left-to-right gradient */
+.amen-feature{ position:relative; overflow:hidden; min-height:520px; display:flex; align-items:center; color:var(--on-dark); }
+.amen-feature img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.amen-feature::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(3,7,9,.86) 0%,rgba(3,7,9,.22) 100%); }
+.amen-feature .wrap{ position:relative; z-index:2; }
+.play-btn{
+  width:84px; height:84px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.55);
+  display:grid; place-items:center; color:#fff;
+  background:rgba(255,255,255,.08);
+  transition:var(--trans);
+}
+.play-btn:hover{ background:var(--accent); border-color:var(--accent); transform:scale(1.06); }
+</style>
+</head>
+<body>
+<div data-site-header></div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" data-screen-label="Home — Hero">
+  <img class="hero-bg" src="./assets/images/hero-section-image.jpg" alt="Mbeya Forest Hill Motel exterior">
+  <div class="wrap">
+    <span class="eyebrow light">Mbeya, Tanzania</span>
+    <h1 class="display fw-light">Your Comfort Retreat in the Heart of <span class="italic">Mbeya</span></h1>
+    <p class="hero-lede">Nestled in the lush hills of Mbeya, Forest Hill Motel offers air-conditioned rooms, an indoor pool, sauna, fitness centre, and a full buffet breakfast — just 1.9 km from Mbeya Airport.</p>
+    <div class="hero-cta">
+      <a class="btn btn--accent" href="booking.html">Book Your Stay</a>
+      <a class="btn btn--ghost-light" href="rooms.html">Explore Rooms</a>
+    </div>
+  </div>
+  <div class="hero-rating">
+    <span class="stars">★★★★</span>
+    <span style="font-size:.8rem;letter-spacing:.06em">Free Airport Shuttle · Free WiFi · Free Parking</span>
+  </div>
+  <div class="hero-side"><span>Scroll to explore</span><span class="ln"></span></div>
+</section>
+
+<!-- ===================== BOOKING DOCK ===================== -->
+<div class="booking-dock">
+  <div class="wrap-wide">
+    <form class="booking-bar" data-booking-form>
+      <div class="booking-field">
+        <label>Check — In</label>
+        <input type="text" data-checkin readonly>
+      </div>
+      <div class="booking-field">
+        <label>Check — Out</label>
+        <input type="text" data-checkout readonly>
+      </div>
+      <div class="booking-field">
+        <label>Adults</label>
+        <select><option>01 Adult</option><option selected>02 Adults</option><option>03 Adults</option><option>04 Adults</option></select>
+      </div>
+      <div class="booking-field">
+        <label>Children</label>
+        <select><option selected>0 Children</option><option>01 Child</option><option>02 Children</option><option>03 Children</option></select>
+      </div>
+      <button class="booking-submit" type="submit">Check Availability</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" data-screen-label="Home — About">
+  <div class="wrap-wide">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow">Welcome to Forest Hill</span>
+        <h2 class="display" style="margin:1.1rem 0 1.4rem">Comfortable accommodations in the hills of Mbeya.</h2>
+        <p class="lede">Mbeya Forest Hill Motel offers family rooms with air-conditioning, private bathrooms, and garden views. Every room includes a work desk, TV, and free WiFi — designed for both leisure travellers and business guests.</p>
+        <p class="muted" style="margin-top:1.2rem">Enjoy our indoor swimming pool, sauna, fitness room, restaurant, bar, and evening entertainment. Free airport shuttle and private parking on site.</p>
+        <a class="link-arrow" href="about.html" style="margin-top:2rem">Discover Our Story <span class="ar">→</span></a>
+      </div>
+      <div class="about-collage" data-reveal>
+        <img class="tall" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/743884551.jpg?k=4ffe2db4de5e3dffae7d137380d08a459135f7438cc725bbd266810f32c2ef64&o=" alt="Bedroom with orange canopy">
+        <img class="sq" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/743884568.jpg?k=0a80a5b124218ff8e0f46fd993ba6f221912e5f29c8b1382fcf258ceb020223e&o=" alt="Indoor pool">
+        <img class="sq" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/743996654.jpg?k=010e913a63fb0cf81c0ea19af695de046d49179db571a126d74ae72927492ba4&o=" alt="Hotel exterior">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ROOMS ===================== -->
+<section class="section" style="background:var(--bg-alt)" data-screen-label="Home — Rooms">
+  <div class="wrap-wide">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:3rem" data-reveal>
+      <div>
+        <span class="eyebrow">Accommodation</span>
+        <h2 class="display" style="margin-top:1rem;max-width:18ch">Rooms for every type of stay.</h2>
+      </div>
+      <p class="muted" style="max-width:38ch">Four room types to suit solo travellers, couples, and families — all with air-conditioning, private bathrooms, TV, and free WiFi.</p>
+    </div>
+    <div class="grid g-3" id="roomGrid"></div>
+    <div class="center" style="margin-top:3rem" data-reveal>
+      <a class="btn btn--outline" href="rooms.html">View All Our Rooms</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIENCES ===================== -->
+<section class="section dark-section" data-screen-label="Home — Experiences">
+  <div class="wrap-wide">
+    <div class="center" style="margin-bottom:3rem" data-reveal>
+      <span class="eyebrow center light">Beyond your room</span>
+      <h2 class="display" style="margin-top:1rem;color:#fff">Every facility you need, on site</h2>
+    </div>
+    <div class="exp-grid">
+      <a class="exp-card" href="experiences.html" data-reveal>
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/743884568.jpg?k=0a80a5b124218ff8e0f46fd993ba6f221912e5f29c8b1382fcf258ceb020223e&o=" alt="Indoor pool">
+        <div class="exp-body"><h3 class="display">Indoor Pool &amp; Sauna</h3><p>Unwind in our heated indoor swimming pool or relax in the sauna after a long journey.</p><span class="link-arrow">Explore →</span></div>
+      </a>
+      <a class="exp-card" href="experiences.html" data-reveal>
+        <img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img6.webp" alt="Restaurant">
+        <div class="exp-body"><h3 class="display">Restaurant &amp; Bar</h3><p>Start the day with a full buffet breakfast — English, Irish, vegetarian and Asian options.</p><span class="link-arrow">Explore →</span></div>
+      </a>
+      <a class="exp-card" href="experiences.html" data-reveal>
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/743884562.jpg?k=ac500e2c9fa3e6b619fc6b76068edb8700b890cc77b9cd6a02c88766070bcc27&o=" alt="Fitness centre">
+        <div class="exp-body"><h3 class="display">Fitness Centre</h3><p>Keep your routine going in our fully equipped fitness room, open every day.</p><span class="link-arrow">Explore →</span></div>
+      </a>
+      <a class="exp-card" href="experiences.html" data-reveal>
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/744378060.jpg?k=5bc246ca49211f958402ddd3b93c2703ded0e1b1c770f5b4c0227ee394a5ed42&o=" alt="Conference room">
+        <div class="exp-body"><h3 class="display">Meetings &amp; Events</h3><p>Host your conference or private event in our dedicated meeting room with full AV support.</p><span class="link-arrow">Explore →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESTAURANT ===================== -->
+<section class="section" data-screen-label="Home — Restaurant">
+  <div class="wrap-wide">
+    <div class="split">
+      <div class="resto-imgs" data-reveal>
+        <img class="a" src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img6.webp" alt="Restaurant dining">
+        <img class="b" src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img7.webp" alt="Dining room">
+        <img class="b" src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img8.webp" alt="Buffet spread">
+      </div>
+      <div data-reveal>
+        <span class="eyebrow">Dining on site</span>
+        <h2 class="display" style="margin:1.1rem 0 1.4rem">A full breakfast and a welcoming restaurant.</h2>
+        <p class="lede">Begin every morning with our generous buffet — Full English, Irish, vegetarian, and Asian options included. In the evening, enjoy the on-site restaurant, lounge bar, and live entertainment.</p>
+        <ul style="margin:1.8rem 0;display:grid;gap:.7rem">
+          <li style="display:flex;gap:.8em;align-items:center"><span style="color:var(--accent-deep)">—</span> Buffet Breakfast Included</li>
+          <li style="display:flex;gap:.8em;align-items:center"><span style="color:var(--accent-deep)">—</span> Full English, Vegetarian &amp; Asian Options</li>
+          <li style="display:flex;gap:.8em;align-items:center"><span style="color:var(--accent-deep)">—</span> On-Site Restaurant &amp; Lounge Bar</li>
+          <li style="display:flex;gap:.8em;align-items:center"><span style="color:var(--accent-deep)">—</span> Evening Entertainment &amp; Room Service</li>
+        </ul>
+        <a class="btn btn--outline" href="experiences.html">Explore Dining</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AMENITY VIDEO BAND ===================== -->
+<section class="amen-feature" data-screen-label="Home — Amenity feature">
+  <img src="./assets/images/home-our-comfort-our-priority.jpg" alt="Forest Hill Motel room">
+  <div class="wrap">
+    <span class="eyebrow light">Your comfort, our priority</span>
+    <h2 class="display" style="color:#fff;max-width:20ch;margin:1.1rem 0 2rem">Air-conditioned rooms, garden views, and warm Tanzanian hospitality.</h2>
+    <a class="play-btn" href="rooms.html" aria-label="View rooms">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== BOOK DIRECT PERKS ===================== -->
+<section class="section dark-section" data-screen-label="Home — Book direct">
+  <div class="wrap-wide">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow light">Reservation</span>
+        <h2 class="display" style="color:#fff;margin:1.1rem 0 1.2rem">Included in every stay at Forest Hill</h2>
+        <p class="muted" style="max-width:42ch">We believe comfort should come standard. Every guest enjoys these facilities at no extra charge, every night.</p>
+        <a class="btn btn--accent" style="margin-top:2rem" href="booking.html">Reserve Your Room</a>
+      </div>
+      <div class="grid" style="gap:2rem" data-reveal>
+        <div class="perk"><div class="pi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="pn">Free Airport Shuttle</div><div class="pd">Complimentary transfer to and from Mbeya Airport, just 1.9 km away.</div></div>
+        <div class="perk"><div class="pi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div class="pn">Free Private Parking</div><div class="pd">Secure on-site parking available for all guests at no additional cost.</div></div>
+        <div class="perk"><div class="pi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 9h16M4 9l1.5 11h13L20 9M4 9l2-5h12l2 5"/></svg></div><div class="pn">Buffet Breakfast</div><div class="pd">Full English, Irish, vegetarian, and Asian options served fresh every morning.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OFFERS ===================== -->
+<section class="section" data-screen-label="Home — Offers">
+  <div class="wrap-wide">
+    <div class="center" style="margin-bottom:3rem" data-reveal>
+      <span class="eyebrow center">Current Offers</span>
+      <h2 class="display" style="margin-top:1rem">Specials &amp; Packages</h2>
+    </div>
+    <div class="grid g-3">
+      <article class="offer-card" data-reveal>
+        <div class="media"><img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/743884568.jpg?k=0a80a5b124218ff8e0f46fd993ba6f221912e5f29c8b1382fcf258ceb020223e&o=" alt="Pool package"></div>
+        <div class="body"><div class="offer-date">Available Now</div><h3 class="display"><a href="booking.html">Pool &amp; Sauna access included with every room</a></h3><p class="muted" style="font-size:.92rem">All guests enjoy unlimited access to our indoor swimming pool, sauna, and terrace throughout their stay.</p><a class="link-arrow" href="booking.html" style="margin-top:1.2rem">Book Now →</a></div>
+      </article>
+      <article class="offer-card" data-reveal>
+        <div class="media"><img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/743884475.jpg?k=454c9e4ce37cba9242bc43475c04ea71ab732a8a5242c48a74c969210a22d40a&o=" alt="Family room"></div>
+        <div class="body"><div class="offer-date">Family Offer</div><h3 class="display"><a href="booking.html?room=family-balcony">Family Room with Balcony — up to 6 guests</a></h3><p class="muted" style="font-size:.92rem">Our family room with balcony sleeps up to 6 guests across four beds, with a private kitchen and dining. Children of all ages are welcome — no age restriction at check-in.</p><a class="link-arrow" href="booking.html" style="margin-top:1.2rem">View Room →</a></div>
+      </article>
+      <article class="offer-card" data-reveal>
+        <div class="media"><img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img6.webp" alt="Breakfast offer"></div>
+        <div class="body"><div class="offer-date">Daily Offer</div><h3 class="display"><a href="booking.html">Full buffet breakfast included in all bookings</a></h3><p class="muted" style="font-size:.92rem">Start every morning right — Full English, Irish, vegetarian, and Asian options served fresh from our kitchen.</p><a class="link-arrow" href="booking.html" style="margin-top:1.2rem">Reserve a Table →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section" style="background:var(--bg-alt)" data-screen-label="Home — Testimonials">
+  <div class="wrap-wide">
+    <div class="center" style="margin-bottom:3rem" data-reveal>
+      <span class="eyebrow center">Guest stories</span>
+      <h2 class="display" style="margin-top:1rem">What our guests say</h2>
+    </div>
+    <div class="grid g-3">
+      <div class="quote-card" data-reveal><div class="stars">★★★★</div><h4>Good value and great location for Mbeya</h4><p>The staff were very friendly and helpful. The pool was a pleasant surprise — clean and well-maintained. A solid choice for anyone visiting Mbeya.</p><div class="who">Guest · Booking.com</div></div>
+      <div class="quote-card" data-reveal><div class="stars">★★★★</div><h4>Airport shuttle was a lifesaver</h4><p>Arrived late and the free airport transfer made everything easy. Room had everything I needed — AC, WiFi, hot water. Breakfast was generous.</p><div class="who">Business Traveller · Tanzania</div></div>
+      <div class="quote-card" data-reveal><div class="stars">★★★★</div><h4>Perfect for a family stopover</h4><p>We stayed two nights with three kids. The family room was spacious and the children loved the playground area. Pets were also welcome, which helped us greatly.</p><div class="who">Family Guest · Tanzania</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="section dark-section" data-screen-label="Home — Newsletter">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow center light" data-reveal>Stay in touch</span>
+    <h2 class="display" style="color:#fff;margin:1.1rem auto 1.4rem;max-width:20ch" data-reveal>Stay informed about our latest offers</h2>
+    <p class="muted" style="max-width:48ch;margin-inline:auto" data-reveal>Join our mailing list for special rates, seasonal packages, and news from Mbeya Forest Hill Motel.</p>
+    <form class="news-field" style="margin:2rem auto 0" data-reveal onsubmit="this.querySelector('input').value='';this.querySelector('button').textContent='Subscribed ✓';return false;">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<div data-site-footer></div>
+
+<script>
+window.CARMELINA = { active:'home', transparentHeader:true };
+/* Room data — Mbeya Forest Hill Motel */
+window.CARMELINA_ROOMS = [
+  { slug:'vip-suite', name:'VIP Suite', price:150000, cap:4, beds:2, img:'./assets/images/gallery/rooms-suite-bed.jpg',
+    features:['2 Beds','Meeting Room','Private Kitchen','Dining','Wi-Fi &amp; Fridge','TV'],
+    desc:'Our finest suite — two beds, a private meeting room, full kitchen and dining for a complete home-away-from-home stay.' },
+  { slug:'family-balcony', name:'Family Room with Balcony', price:80000, cap:6, beds:4, img:'./assets/images/gallery/rooms-double-bed.jpg',
+    features:['4 Beds','Private Kitchen','Dining','Balcony','Wi-Fi &amp; Fridge','TV'],
+    desc:'A spacious double bed-room for families — four beds, a private kitchen and dining area, and a balcony with Mbeya views.' },
+  { slug:'budget-bedroom', name:'Budget Bedroom', price:50000, cap:2, beds:1, img:'./assets/images/gallery/rooms-cozy-bed.jpg',
+    features:['1 Bed','Comfortable Sofa','Dressing Table','Fridge','TV'],
+    desc:'Comfortable and affordable — a single bed, a cozy sofa and a dressing table for a restful stay.' },
+  { slug:'economy-veranda', name:'Economy Bedroom with Veranda', price:30000, cap:2, beds:1, img:'./assets/images/gallery/rooms-twin-bed.jpg',
+    features:['1 Bed','Private Veranda','Fridge','TV'],
+    desc:'Our best-value room with a private veranda — a simple, comfortable single bedroom with the essentials.' },
+];
+</script>
+<script src="assets/site.js"></script>
+<script>
+/* render room cards */
+(function(){
+  const grid=document.getElementById('roomGrid');
+  if(!grid) return;
+  const money=n=>n.toLocaleString('en-US');
+  grid.innerHTML = window.CARMELINA_ROOMS.map(r=>`
+    <article class="room-card" data-reveal>
+      <div class="media">
+        <span class="price-tag">From <b>${money(r.price)}</b> TZS / night</span>
+        <img src="${r.img}" alt="${r.name}">
+      </div>
+      <div class="body">
+        <h3 class="display"><a href="room.html?room=${r.slug}">${r.name}</a></h3>
+        <div class="room-meta">
+          <span><span class="ic">◆</span> <b>${r.cap}</b> Guests</span>
+          <span><span class="ic">◆</span> <b>${r.beds}</b> Bed${r.beds>1?'s':''}</span>
+          <span><span class="ic">◆</span> ${r.features[1]}</span>
+        </div>
+        <p class="desc">${r.desc}</p>
+        <div class="foot">
+          <a class="link-arrow" href="room.html?room=${r.slug}">More Details →</a>
+          <a class="btn btn--accent" style="padding:.8em 1.3em" href="booking.html?room=${r.slug}">Book</a>
+        </div>
+      </div>
+    </article>`).join('');
+  // re-run reveal for injected cards
+  if(window.IntersectionObserver){
+    const io=new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.1});
+    grid.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+  }
+})();
+</script>
+</body>
+</html>

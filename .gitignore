@@ -1,0 +1,13 @@
+# Unused high-resolution photo source folder (large, mostly unused)
+Highlights/
+
+# Local curl session cookies — do not commit (contains session tokens)
+cookiejar.txt
+
+# Editor / agent local config
+.vscode/
+.claude/
+
+# OS junk
+Thumbs.db
+.DS_Store
