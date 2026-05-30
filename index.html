@@ -24,12 +24,13 @@
 .hero-cta{ display:flex; gap:1rem; margin-top:2.8rem; flex-wrap:wrap; }
 .hero-side{ position:absolute; right:var(--gutter); top:50%; transform:translateY(-50%); z-index:3; writing-mode:vertical-rl; font-size:.66rem; letter-spacing:.44em; text-transform:uppercase; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:1.4rem; }
 .hero-side .ln{ height:80px; width:1px; background:rgba(255,255,255,.3); }
-.hero-rating{ position:absolute; left:var(--gutter); bottom:clamp(60px,10vh,100px); z-index:3; display:flex; align-items:center; gap:1rem; color:#fff; }
+.hero-rating{ position:absolute; left:var(--gutter); right:var(--gutter); bottom:clamp(60px,10vh,100px); z-index:3; display:flex; align-items:center; gap:1rem; color:#fff; flex-wrap:wrap; }
 .hero-rating .stars{ color:var(--accent); letter-spacing:.18em; font-size:1rem; }
 
 /* booking dock — sits naturally below the hero, no overlap */
 .booking-dock{ position:relative; z-index:20; }
-@media(max-width:900px){ .hero .wrap{ padding-bottom:80px; } .hero-rating{ bottom:120px; } }
+@media(max-width:900px){ .hero .wrap{ padding-bottom:90px; } .hero-rating{ bottom:104px; } .hero-side{ display:none; } }
+@media(max-width:560px){ .hero-rating{ bottom:92px; gap:.6rem; } .hero-rating span:last-child{ font-size:.72rem; } }
 
 /* about collage */
 .about-collage{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:14px; }

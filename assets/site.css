@@ -470,9 +470,25 @@ h3.display{ font-size:clamp(1.45rem, 2.4vw, 2rem);  line-height:1.12; }
   .g-2{ grid-template-columns:1fr; }
   .booking-bar{ grid-template-columns:1fr; }
   .booking-field{ border-right:none; border-bottom:1px solid var(--line-soft); }
+  .booking-field:last-of-type{ border-bottom:none; }
   .footer-grid{ grid-template-columns:1fr; }
-  .page-hero .wrap{ padding-top:130px; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  .page-hero .wrap{ padding-top:120px; }
 }
+@media (max-width:480px){
+  .nav{ gap:1rem; height:72px; }
+  .brand-mark{ font-size:1.45rem; }
+  .nav-right{ gap:.85rem; }
+  .btn{ padding:1em 1.8em; letter-spacing:.16em; }
+  .page-hero{ min-height:52vh; }
+  .breadcrumb{ flex-wrap:wrap; }
+}
+
+/* ---- Overflow safety: keep long words / emails / URLs from breaking layout ---- */
+.lede, .muted, p, .info-cell .iv, .footer-col a, .footer-col li, .topbar a, .breadcrumb{
+  overflow-wrap:break-word; word-break:break-word;
+}
+.display, h1, h2, h3, h4, h5{ overflow-wrap:break-word; }
 
 /* ============================================================
    LANGUAGE SWITCH (EN / SW)
