@@ -176,7 +176,7 @@
         <div class="sum-row"><span>Guests</span><b id="sGuests">2 Adults</b></div>
         <div class="sum-div"></div>
         <div class="sum-row"><span><span class="sN">50</span> TZS × <span id="sNights">2</span> nights</span><b><span id="sSub">100</span> TZS</b></div>
-        <div class="sum-row"><span>Service &amp; taxes</span><b><span id="sTax">18</span> TZS</b></div>
+        <div class="sum-row"><span>Service &amp; taxes (incl.)</span><b><span id="sTax">18</span> TZS</b></div>
         <div class="sum-div"></div>
         <div class="sum-total"><span class="lbl">Total</span><span class="val"><span id="sTotal">118</span> TZS</span></div>
       </aside>
@@ -214,7 +214,7 @@ window.CARMELINA_ROOMS = [
   const money=n=>n.toLocaleString('en-US');
 
   function updateSummary(){
-    const r=state.room, n=nights(), sub=r.price*n, tax=Math.round(sub*0.18), total=sub+tax;
+    const r=state.room, n=nights(), sub=r.price*n, tax=Math.round(sub - sub/1.18), total=sub;
     document.getElementById('sImg').src=r.img;
     document.getElementById('sRoom').textContent=r.name;
     document.getElementById('sView').innerHTML='<b>'+r.beds+'</b> '+(r.beds>1?'Beds':'Bed')+' · <span>Sleeps</span> <b>'+r.cap+'</b>';

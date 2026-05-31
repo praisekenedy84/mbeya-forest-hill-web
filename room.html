@@ -7,10 +7,23 @@
 <link rel="stylesheet" href="assets/site.css">
 <style>
 .detail-layout{ display:grid; grid-template-columns:1fr 360px; gap:clamp(28px,4vw,64px); align-items:start; }
-.gallery-main{ position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--bg-alt); }
+.gallery-main{ position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--bg-alt); cursor:zoom-in; }
 .gallery-main img{ width:100%; height:100%; object-fit:cover; }
-.gallery-thumbs{ display:flex; gap:12px; margin-top:12px; }
-.gallery-thumbs button{ flex:1; aspect-ratio:3/2; border:1px solid var(--line-soft); padding:0; overflow:hidden; background:none; opacity:.6; transition:.3s; }
+.gallery-main .zoom-hint{ position:absolute; bottom:12px; right:12px; background:rgba(0,0,0,.55); color:#fff; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; padding:.5em .9em; pointer-events:none; }
+.lightbox{ position:fixed; inset:0; z-index:1000; background:rgba(12,12,12,.94); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity .3s; }
+.lightbox.open{ opacity:1; visibility:visible; }
+.lightbox img{ max-width:92vw; max-height:88vh; object-fit:contain; box-shadow:0 20px 60px rgba(0,0,0,.5); }
+.lightbox .lb-close{ position:absolute; top:20px; right:24px; background:none; border:none; color:#fff; font-size:2.4rem; line-height:1; cursor:pointer; opacity:.8; transition:.2s; }
+.lightbox .lb-close:hover{ opacity:1; }
+.lightbox .lb-nav{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.12); border:none; color:#fff; width:54px; height:54px; font-size:1.8rem; cursor:pointer; transition:.2s; }
+.lightbox .lb-nav:hover{ background:rgba(255,255,255,.25); }
+.lightbox .lb-prev{ left:24px; }
+.lightbox .lb-next{ right:24px; }
+.lightbox .lb-count{ position:absolute; bottom:22px; left:50%; transform:translateX(-50%); color:#fff; font-size:.85rem; letter-spacing:.1em; opacity:.85; }
+@media(max-width:560px){ .lightbox .lb-nav{ width:42px; height:42px; font-size:1.4rem; } .lightbox .lb-prev{ left:10px; } .lightbox .lb-next{ right:10px; } }
+.gallery-thumbs{ display:flex; flex-wrap:wrap; gap:12px; margin-top:12px; }
+.gallery-thumbs button{ flex:0 0 calc((100% - 48px)/5); aspect-ratio:3/2; border:1px solid var(--line-soft); padding:0; overflow:hidden; background:none; opacity:.6; transition:.3s; cursor:pointer; }
+@media(max-width:560px){ .gallery-thumbs button{ flex:0 0 calc((100% - 24px)/3); } }
 .gallery-thumbs button.active{ opacity:1; outline:2px solid var(--accent); outline-offset:-2px; }
 .gallery-thumbs img{ width:100%; height:100%; object-fit:cover; }
 .detail-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; margin:2.4rem 0 1.4rem; flex-wrap:wrap; }
@@ -54,7 +67,7 @@
   <div class="wrap-wide">
     <div class="detail-layout">
       <div>
-        <div class="gallery-main"><img id="gMain" src="" alt="Room"></div>
+        <div class="gallery-main" id="gMainWrap"><img id="gMain" src="" alt="Room"><span class="zoom-hint">Click to enlarge</span></div>
         <div class="gallery-thumbs" id="gThumbs"></div>
 
         <div class="detail-head">
@@ -89,7 +102,7 @@
         <div class="bp-field"><label>Guests</label><select id="bpGuests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select></div>
         <div class="bp-summary">
           <div class="row"><span><span class="bpN">50</span> TZS × <span id="bpNights">2</span> nights</span><span><span id="bpSub">100</span> TZS</span></div>
-          <div class="row"><span>Service &amp; taxes</span><span><span id="bpTax">18</span> TZS</span></div>
+          <div class="row"><span>Service &amp; taxes (incl.)</span><span><span id="bpTax">18</span> TZS</span></div>
           <div class="total"><span>Total</span><span><span id="bpTotal">118</span> TZS</span></div>
         </div>
         <a class="btn btn--accent btn--block" id="bookBtn" href="booking.html" style="margin-top:1.2rem">Reserve Now</a>
@@ -110,6 +123,14 @@
 
 <div data-site-footer></div>
 
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <img id="lbImg" src="" alt="Room photo">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+  <span class="lb-count" id="lbCount"></span>
+</div>
+
 <script>window.CARMELINA = { active:'rooms', transparentHeader:true };</script>
 <script>
 window.CARMELINA_ROOMS = [
@@ -117,22 +138,49 @@ window.CARMELINA_ROOMS = [
     features:['2 Beds','Meeting Room','Private Kitchen','Dining','Wi-Fi & Fridge','TV'],
     desc:'Our finest accommodation — a spacious suite with two beds, a private meeting room, full kitchen and dining area for a complete home-away-from-home stay.',
     img:'./assets/images/gallery/rooms-suite-bed.jpg',
-    gal:['./assets/images/gallery/rooms-suite-bed.jpg','./assets/images/gallery/rooms-bathroom-vanity.jpg'] },
+    gal:['./assets/images/gallery/rooms-suite-bed.jpg','./assets/images/gallery/rooms-bathroom-vanity.jpg',
+      './assets/images/vip-suite/WhatsApp%20Image%202026-05-31%20at%2004.18.30.jpeg',
+      './assets/images/vip-suite/WhatsApp%20Image%202026-05-31%20at%2004.18.30%20(1).jpeg',
+      './assets/images/vip-suite/WhatsApp%20Image%202026-05-31%20at%2004.18.31.jpeg',
+      './assets/images/vip-suite/WhatsApp%20Image%202026-05-31%20at%2004.18.31%20(1).jpeg',
+      './assets/images/vip-suite/WhatsApp%20Image%202026-05-31%20at%2004.18.31%20(2).jpeg',
+      './assets/images/vip-suite/WhatsApp%20Image%202026-05-31%20at%2004.18.31%20(3).jpeg',
+      './assets/images/vip-suite/WhatsApp%20Image%202026-05-31%20at%2004.18.32.jpeg',
+      './assets/images/vip-suite/WhatsApp%20Image%202026-05-31%20at%2004.18.32%20(1).jpeg',
+      './assets/images/vip-suite/WhatsApp%20Image%202026-05-31%20at%2004.18.32%20(2).jpeg'] },
   { slug:'family-balcony', name:'Family Room with Balcony', price:80000, cap:6, beds:4,
     features:['4 Beds','Private Kitchen','Dining','Balcony','Wi-Fi & Fridge','TV'],
     desc:'A generous double bed-room ideal for families, with four beds, a private kitchen and dining area, and a balcony to enjoy the Mbeya views.',
     img:'./assets/images/gallery/rooms-double-bed.jpg',
-    gal:['./assets/images/gallery/rooms-double-bed.jpg','./assets/images/gallery/rooms-cozy-bed.jpg'] },
+    gal:['./assets/images/gallery/rooms-double-bed.jpg',
+      './assets/images/family-room/WhatsApp%20Image%202026-05-31%20at%2004.24.45.jpeg',
+      './assets/images/family-room/WhatsApp%20Image%202026-05-31%20at%2004.24.46.jpeg',
+      './assets/images/family-room/WhatsApp%20Image%202026-05-31%20at%2004.24.46%20(1).jpeg',
+      './assets/images/family-room/WhatsApp%20Image%202026-05-31%20at%2004.24.47.jpeg',
+      './assets/images/family-room/WhatsApp%20Image%202026-05-31%20at%2004.26.47.jpeg'] },
   { slug:'budget-bedroom', name:'Budget Bedroom', price:50000, cap:2, beds:1,
     features:['1 Bed','Comfortable Sofa','Dressing Table','Fridge','TV'],
     desc:'A comfortable and affordable room with a single bed, a cozy sofa and a dressing table — everything you need for a restful stay.',
     img:'./assets/images/gallery/rooms-cozy-bed.jpg',
-    gal:['./assets/images/gallery/rooms-cozy-bed.jpg','./assets/images/gallery/rooms-bedside.jpg'] },
+    gal:['./assets/images/gallery/rooms-cozy-bed.jpg','./assets/images/gallery/rooms-bedside.jpg',
+      './assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.37.jpeg',
+      './assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.37%20(1).jpeg',
+      './assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.37%20(2).jpeg',
+      './assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.38.jpeg',
+      './assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.38%20(1).jpeg',
+      './assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.39.jpeg',
+      './assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.40.jpeg',
+      './assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.40%20(1).jpeg'] },
   { slug:'economy-veranda', name:'Economy Bedroom with Veranda', price:30000, cap:2, beds:1,
     features:['1 Bed','Private Veranda','Fridge','TV'],
     desc:'Our best-value room with a private veranda — a simple, comfortable single bedroom with all the essentials for a great night.',
     img:'./assets/images/gallery/rooms-twin-bed.jpg',
-    gal:['./assets/images/gallery/rooms-twin-bed.jpg','./assets/images/gallery/rooms-single-bed.jpg'] },
+    gal:['./assets/images/gallery/rooms-twin-bed.jpg',
+      './assets/images/economy-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.35.18.jpeg',
+      './assets/images/economy-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.35.18%20(1).jpeg',
+      './assets/images/economy-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.35.19.jpeg',
+      './assets/images/economy-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.35.19%20(1).jpeg',
+      './assets/images/economy-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.35.20.jpeg'] },
 ];
 </script>
 <script src="assets/site.js"></script>
@@ -166,14 +214,31 @@ window.CARMELINA_ROOMS = [
   const gMain=document.getElementById('gMain'), gThumbs=document.getElementById('gThumbs');
   gMain.src=r.gal[0];
   gThumbs.innerHTML=r.gal.map((g,i)=>`<button class="${i===0?'active':''}" data-i="${i}"><img src="${g}" alt=""></button>`).join('');
-  gThumbs.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b)return;
-    gThumbs.querySelectorAll('button').forEach(x=>x.classList.remove('active')); b.classList.add('active');
-    gMain.style.opacity=0; setTimeout(()=>{ gMain.src=r.gal[+b.dataset.i]; gMain.style.opacity=1; },180);
-  });
+  let current=0;
+  function setMain(i){ current=i;
+    gThumbs.querySelectorAll('button').forEach((x,xi)=>x.classList.toggle('active',xi===i));
+    gMain.style.opacity=0; setTimeout(()=>{ gMain.src=r.gal[i]; gMain.style.opacity=1; },180);
+  }
+  gThumbs.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b)return; setMain(+b.dataset.i); });
   gMain.style.transition='opacity .3s';
 
+  // lightbox
+  const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg'),
+        lbCount=document.getElementById('lbCount');
+  function showLb(i){ current=(i+r.gal.length)%r.gal.length; lbImg.src=r.gal[current];
+    lbCount.textContent=(current+1)+' / '+r.gal.length; }
+  function openLb(){ showLb(current); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  document.getElementById('gMainWrap').addEventListener('click',openLb);
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  document.getElementById('lbPrev').addEventListener('click',e=>{ e.stopPropagation(); showLb(current-1); });
+  document.getElementById('lbNext').addEventListener('click',e=>{ e.stopPropagation(); showLb(current+1); });
+  lb.addEventListener('click',e=>{ if(e.target===lb) closeLb(); });
+  document.addEventListener('keydown',e=>{ if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape') closeLb(); else if(e.key==='ArrowLeft') showLb(current-1); else if(e.key==='ArrowRight') showLb(current+1); });
+
   // booking summary calc
-  const nights=2, sub=r.price*nights, tax=Math.round(sub*0.18), total=sub+tax;
+  const nights=2, sub=r.price*nights, tax=Math.round(sub - sub/1.18), total=sub;
   document.getElementById('bpNights').textContent=nights;
   document.getElementById('bpSub').textContent=money(sub);
   document.getElementById('bpTax').textContent=money(tax);

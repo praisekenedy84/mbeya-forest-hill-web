@@ -218,7 +218,7 @@
     "Cardholder Name":"Jina la Mwenye Kadi","Card Number":"Namba ya Kadi","Expiry":"Mwisho","Confirm Booking":"Thibitisha Hifadhi",
     "Your stay is confirmed":"Malazi yako yamethibitishwa","A confirmation has been sent to":"Uthibitisho umetumwa kwa",
     "Back to Home":"Rudi Mwanzo","Explore Experiences":"Tazama Huduma","Your Reservation":"Hifadhi Yako",
-    "Check-in":"Kuingia","Check-out":"Kutoka","Service & taxes":"Huduma & kodi","Total":"Jumla",
+    "Check-in":"Kuingia","Check-out":"Kutoka","Service & taxes (incl.)":"Huduma & kodi (imejumuishwa)","Total":"Jumla",
     "Early check-in, dietary needs, celebration…":"Kuingia mapema, mahitaji ya chakula, sherehe…",
     /* --- contact --- */
     "We'd love to hear from you":"Tungependa kusikia kutoka kwako","Contact Us":"Wasiliana Nasi","Address":"Anuani",
@@ -472,7 +472,7 @@
       b.addEventListener('click', e=>{ e.preventDefault(); if(window.openAuth) window.openAuth(b.dataset.openAuth); });
     });
 
-    initReveal(); initCounters(); initBookingDefaults(); buildTweakPanel(); initI18n();
+    initReveal(); initCounters(); initBookingDefaults(); initImageFallbacks(); buildTweakPanel(); initI18n();
   }
 
   /* ---------- reveal on scroll ---------- */
@@ -500,6 +500,48 @@
       });
     },{ threshold:.5 });
     nums.forEach(n=>io.observe(n));
+  }
+
+  /* ---------- external image fallbacks ----------
+     Every photo loaded from a remote host (Booking.com cf.bstatic.com and
+     the 7iquid demo CDN) has a local copy stored in assets/images/external/.
+     The remote URL stays the primary source; if it ever fails to load
+     (taken down, host offline, blocked), we silently swap in the local copy.
+     Matching is by filename, so query strings on the remote URL don't matter. */
+  function initImageFallbacks(){
+    const LOCAL_DIR = 'assets/images/external/';
+    const FALLBACKS = {
+      'h4-img6.webp':'h4-img6.webp',
+      'h4-img7.webp':'h4-img7.webp',
+      'h4-img8.webp':'h4-img8.webp',
+      'standard-room-1.jpg':'standard-room-1.jpg',
+      'img1-ab-h1.webp':'img1-ab-h1.webp',
+      'visa_inc_logo.svg':'visa_inc_logo.svg',
+      'mastercard-logo.svg':'mastercard-logo.svg',
+      'americanexpresslogo.svg':'americanexpresslogo.svg',
+      'paypal_logo.svg':'paypal_logo.svg',
+      '743884551.jpg':'743884551.jpg',
+      '743884568.jpg':'743884568.jpg',
+      '743996654.jpg':'743996654.jpg',
+      '743884562.jpg':'743884562.jpg',
+      '744378060.jpg':'744378060.jpg',
+      '743884475.jpg':'743884475.jpg',
+    };
+    function localFor(src){
+      if(!src) return null;
+      const clean = src.split('?')[0].split('#')[0];
+      if(clean.indexOf(LOCAL_DIR) !== -1) return null; // already local — avoid loops
+      const name = clean.substring(clean.lastIndexOf('/')+1);
+      return FALLBACKS[name] ? LOCAL_DIR + FALLBACKS[name] : null;
+    }
+    function swap(img){ const l = localFor(img.getAttribute('src')); if(l) img.src = l; }
+    // catch any future load failures (capture phase — error events don't bubble)
+    document.addEventListener('error', e=>{ const t=e.target; if(t && t.tagName==='IMG') swap(t); }, true);
+    // handle images that already errored before this script ran, and wire the rest
+    document.querySelectorAll('img').forEach(img=>{
+      if(img.complete && img.naturalWidth===0 && img.getAttribute('src')) swap(img);
+      else img.addEventListener('error', ()=>swap(img), {once:true});
+    });
   }
 
   /* ---------- booking widget defaults ---------- */
