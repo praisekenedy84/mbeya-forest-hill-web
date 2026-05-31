@@ -247,7 +247,7 @@
     "Every stay at Forest Hill begins with a generous buffet breakfast — Full English, Irish, vegetarian, and Asian options prepared fresh each morning. In the evenings, our restaurant and lounge bar offer a relaxed dining experience with room service also available.":"Kila malazi katika Forest Hill huanza na kifungua kinywa tele cha buffet — chaguo kamili za Kiingereza, Kiayalandi, mboga, na Kiasia zinazoandaliwa upya kila asubuhi. Jioni, mkahawa wetu na baa ya kupumzika hutoa hali ya kula yenye utulivu na huduma ya chumbani pia inapatikana.",
     "Make a Dining Enquiry":"Uliza Kuhusu Chakula","Ready to book":"Tayari kuhifadhi","All facilities included — book your room at Forest Hill today":"Huduma zote zimejumuishwa — weka chumba chako Forest Hill leo","Reserve Your Room":"Weka Chumba Chako",
     /* --- gallery --- */
-    "Moments at Mbeya Forest Hill":"Nyakati Mbeya Forest Hill","All":"Zote","Wellness":"Afya","Resort & Views":"Mandhari & Resort"
+    "Moments at Mbeya Forest Hill":"Nyakati Mbeya Forest Hill","All":"Zote","Wellness":"Afya","Resort & Views":"Mandhari & Resort","Filling Station & Parking":"Kituo cha Mafuta & Maegesho","Play & Fun":"Michezo & Burudani"
   };
   const I18N_ATTRS = ['placeholder','aria-label','title','alt'];
   let LANG = (function(){ try{ return localStorage.getItem('fh-lang')||'en'; }catch(e){ return 'en'; } })();
