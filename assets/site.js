@@ -8,6 +8,14 @@
   const active = cfg.active || '';
   const transparent = !!cfg.transparentHeader;
 
+  const CONTACT = {
+    phone: '+255 718 541 688',
+    phoneTel: '+255718541688',
+    email: 'mbeyaforesthillmotel2025@gmail.com',
+    addressHtml: 'Forest Hill Road<br>P.O. Box 2237, Mbeya, Tanzania',
+    addressLine: 'Forest Hill Road, P.O. Box 2237, Mbeya, Tanzania — 1.9 km from Mbeya Airport.',
+  };
+
   /* ============================================================
      TWEAKS — palette / type / shape directions (persist across pages)
      ============================================================ */
@@ -89,7 +97,7 @@
     "Our Rooms":"Vyumba Vyetu","About Us":"Kuhusu Sisi","Explore":"Gundua","Payment Methods":"Njia za Malipo",
     "Book Room":"Weka Chumba","Book Your Stay":"Weka Malazi Yako","Login":"Ingia","Register":"Jisajili",
     "Find Us":"Tupate","Terms of Use":"Masharti ya Matumizi","Privacy Policy":"Sera ya Faragha",
-    "Tel. +255 000 000 000":"Simu. +255 000 000 000","Check-in: 10:00 — 23:00":"Kuingia: 10:00 — 23:00",
+    "Tel. +255 718 541 688":"Simu. +255 718 541 688","Check-in: 10:00 — 23:00":"Kuingia: 10:00 — 23:00",
     "© 2026 Mbeya Forest Hill Motel. All rights reserved.":"© 2026 Mbeya Forest Hill Motel. Haki zote zimehifadhiwa.",
     "We accept Visa, Mastercard, American Express, and cash on-site.":"Tunapokea Visa, Mastercard, American Express, na fedha taslimu hapa hapa.",
     "Nestled in the hills of Mbeya, Tanzania — offering comfortable rooms, an indoor pool, restaurant, and warm Tanzanian hospitality just 1.9 km from Mbeya Airport.":"Iliyoko katika milima ya Mbeya, Tanzania — ikitoa vyumba vya starehe, bwawa la kuogelea la ndani, mkahawa, na ukarimu wa joto wa Kitanzania kwa umbali wa kilomita 1.9 tu kutoka Uwanja wa Ndege wa Mbeya.",
@@ -107,9 +115,9 @@
     "Adult":"Mtu mzima","Adults":"Watu wazima","Child":"Mtoto","Children":"Watoto",
     /* --- room names --- */
     "VIP Suite":"Suite ya VIP","Family Room with Balcony":"Chumba cha Familia chenye Baraza",
-    "Budget Bedroom":"Chumba cha Bei Nafuu","Economy Bedroom with Veranda":"Chumba cha Kawaida chenye Veranda",
+    "Standard Premium Room":"Chumba cha Kawaida Premium","Standard Room":"Chumba cha Kawaida","Junior Bedroom":"Chumba Kidogo",
     /* --- room features --- */
-    "2 Beds":"Vitanda 2","4 Beds":"Vitanda 4","1 Bed":"Kitanda 1","Meeting Room":"Chumba cha Mikutano",
+    "2 Beds":"Vitanda 2","4 Beds":"Vitanda 4","1 Bed":"Kitanda 1","1 King Size Bed":"Kitanda cha Ukubwa wa Mfalme","Meeting Room":"Chumba cha Mikutano",
     "Private Kitchen":"Jiko Binafsi","Dining":"Sehemu ya Kulia","Wi-Fi & Fridge":"Wi-Fi na Friji","TV":"TV",
     "Balcony":"Baraza","Comfortable Sofa":"Kochi la Starehe","Dressing Table":"Meza ya Kujipamba",
     "Fridge":"Friji","Private Veranda":"Veranda Binafsi",
@@ -121,6 +129,12 @@
     "A generous double bed-room ideal for families, with four beds, a private kitchen and dining area, and a balcony to enjoy the Mbeya views.":"Chumba kikubwa cha vitanda kinachofaa kwa familia, chenye vitanda vinne, jiko binafsi na sehemu ya kulia, pamoja na baraza la kufurahia mandhari ya Mbeya.",
     "A comfortable and affordable room with a single bed, a cozy sofa and a dressing table — everything you need for a restful stay.":"Chumba cha starehe na bei nafuu chenye kitanda kimoja, kochi la starehe na meza ya kujipamba — kila kitu unachohitaji kwa malazi ya raha.",
     "Our best-value room with a private veranda — a simple, comfortable single bedroom with all the essentials for a great night.":"Chumba chetu cha thamani bora chenye veranda binafsi — chumba rahisi cha starehe chenye kitanda kimoja na mahitaji yote muhimu kwa usiku mzuri.",
+    "Premium comfort — a king-size bed, sofa, dressing table, fridge and TV for a relaxed stay.":"Starehe ya premium — kitanda cha ukubwa wa mfalme, kochi, meza ya kujipamba, friji na TV kwa malazi ya raha.",
+    "Premium comfort with a king-size bed, comfortable sofa, dressing table, fridge and TV.":"Starehe ya premium yenye kitanda cha ukubwa wa mfalme, kochi la starehe, meza ya kujipamba, friji na TV.",
+    "A well-appointed standard room with a single bed, comfortable sofa, dressing table, fridge and TV.":"Chumba cha kawaida kilichopangwa vizuri chenye kitanda kimoja, kochi la starehe, meza ya kujipamba, friji na TV.",
+    "Our best-value room — a simple, comfortable single bedroom with fridge and TV.":"Chumba chetu cha thamani bora — chumba rahisi cha starehe chenye kitanda kimoja, friji na TV.",
+    "A spacious double bed-room for families — four beds, private kitchen and dining, with a balcony overlooking Mbeya.":"Chumba kikubwa cha vitanda viili kwa familia — vitanda vinne, jiko binafsi na sehemu ya kulia, na baraza lenye mandhari ya Mbeya.",
+    "A generous double bed-room ideal for families — four beds, private kitchen and dining, with a balcony to enjoy the Mbeya views.":"Chumba kikubwa cha vitanda viili kinachofaa kwa familia — vitanda vinne, jiko binafsi na sehemu ya kulia, na baraza la kufurahia mandhari ya Mbeya.",
     "Our finest suite — two beds, a private meeting room, full kitchen and dining for a complete home-away-from-home stay.":"Suite yetu bora — vitanda viwili, chumba binafsi cha mikutano, jiko kamili na sehemu ya kulia kwa malazi kamili kama nyumbani.",
     "A spacious double bed-room for families — four beds, a private kitchen and dining area, and a balcony with Mbeya views.":"Chumba kikubwa cha vitanda kwa familia — vitanda vinne, jiko binafsi na sehemu ya kulia, na baraza lenye mandhari ya Mbeya.",
     "Comfortable and affordable — a single bed, a cozy sofa and a dressing table for a restful stay.":"Starehe na bei nafuu — kitanda kimoja, kochi la starehe na meza ya kujipamba kwa malazi ya raha.",
@@ -128,6 +142,7 @@
     "Every room at Mbeya Forest Hill Motel includes complimentary Wi-Fi, free airport shuttle, free private parking, and access to our pool and sauna — comfort comes standard, every night.":"Kila chumba katika Mbeya Forest Hill Motel kinajumuisha Wi-Fi ya bure, usafiri wa bure wa uwanja wa ndege, maegesho binafsi ya bure, na matumizi ya bwawa na sauna — starehe ni kawaida, kila usiku.",
     /* --- home (index) --- */
     "Mbeya, Tanzania":"Mbeya, Tanzania","Your Comfort Retreat in the Heart of":"Mahali Pako pa Starehe Katikati ya",
+    "Mbeya Hospitality At It's Best":"Ukarimu wa Mbeya kwa Kiwango Bora Zaidi",
     "Nestled in the lush hills of Mbeya, Forest Hill Motel offers air-conditioned rooms, an indoor pool, sauna, fitness centre, and a full buffet breakfast — just 1.9 km from Mbeya Airport.":"Iliyoko katika milima ya kijani ya Mbeya, Forest Hill Motel inatoa vyumba vyenye kiyoyozi, bwawa la ndani, sauna, kituo cha mazoezi, na kifungua kinywa kamili cha buffet — kwa umbali wa kilomita 1.9 tu kutoka Uwanja wa Ndege wa Mbeya.",
     "Explore Rooms":"Tazama Vyumba","Free Airport Shuttle · Free WiFi · Free Parking":"Usafiri wa Bure wa Uwanja wa Ndege · WiFi Bure · Maegesho Bure",
     "Scroll to explore":"Sogeza kuona zaidi","Check — In":"Kuingia","Check — Out":"Kutoka","Check Availability":"Angalia Upatikanaji",
@@ -138,7 +153,7 @@
     "Mbeya Forest Hill Motel offers family rooms with air-conditioning, private bathrooms, and garden views. Every room includes a work desk, TV, and free WiFi — designed for both leisure travellers and business guests.":"Mbeya Forest Hill Motel inatoa vyumba vya familia vyenye kiyoyozi, bafu binafsi, na mandhari ya bustani. Kila chumba kina meza ya kazi, TV, na WiFi ya bure — vimeundwa kwa wasafiri wa mapumziko na wageni wa biashara.",
     "Enjoy our indoor swimming pool, sauna, fitness room, restaurant, bar, and evening entertainment. Free airport shuttle and private parking on site.":"Furahia bwawa letu la ndani la kuogelea, sauna, chumba cha mazoezi, mkahawa, baa, na burudani za jioni. Usafiri wa bure wa uwanja wa ndege na maegesho binafsi hapa hapa.",
     "Discover Our Story":"Gundua Hadithi Yetu","Accommodation":"Malazi","Rooms for every type of stay.":"Vyumba kwa kila aina ya malazi.",
-    "Four room types to suit solo travellers, couples, and families — all with air-conditioning, private bathrooms, TV, and free WiFi.":"Aina nne za vyumba zinazofaa wasafiri wa peke yao, wapenzi, na familia — vyote vyenye kiyoyozi, bafu binafsi, TV, na WiFi ya bure.",
+    "Five room types to suit solo travellers, couples, and families — all with air-conditioning, private bathrooms, TV, and free WiFi.":"Aina tano za vyumba zinazofaa wasafiri wa peke yao, wapenzi, na familia — vyote vyenye kiyoyozi, bafu binafsi, TV, na WiFi ya bure.",
     "View All Our Rooms":"Tazama Vyumba Vyote","Beyond your room":"Zaidi ya chumba chako","Every facility you need, on site":"Kila huduma unayohitaji, hapa hapa",
     "Indoor Pool & Sauna":"Bwawa la Ndani & Sauna","Unwind in our heated indoor swimming pool or relax in the sauna after a long journey.":"Pumzika katika bwawa letu la ndani la maji ya moto au tulia katika sauna baada ya safari ndefu.",
     "Explore →":"Tazama →","Restaurant & Bar":"Mkahawa & Baa","Start the day with a full buffet breakfast — English, Irish, vegetarian and Asian options.":"Anza siku na kifungua kinywa kamili cha buffet — chaguo za Kiingereza, Kiayalandi, mboga, na Kiasia.",
@@ -153,8 +168,8 @@
     "Current Offers":"Ofa za Sasa","Specials & Packages":"Maalum & Vifurushi","Available Now":"Inapatikana Sasa",
     "Pool & Sauna access included with every room":"Bwawa & Sauna vimejumuishwa na kila chumba",
     "All guests enjoy unlimited access to our indoor swimming pool, sauna, and terrace throughout their stay.":"Wageni wote hufurahia matumizi yasiyo na kikomo ya bwawa letu la ndani, sauna, na roshani katika kipindi chote cha malazi yao.",
-    "Book Now →":"Weka Sasa →","Family Offer":"Ofa ya Familia","Family Room with Balcony — up to 6 guests":"Chumba cha Familia chenye Baraza — hadi wageni 6",
-    "Our family room with balcony sleeps up to 6 guests across four beds, with a private kitchen and dining. Children of all ages are welcome — no age restriction at check-in.":"Chumba chetu cha familia chenye baraza hulala hadi wageni 6 katika vitanda vinne, chenye jiko binafsi na sehemu ya kulia. Watoto wa rika zote wanakaribishwa — hakuna kizuizi cha umri wakati wa kuingia.",
+    "Book Now →":"Weka Sasa →","Family Offer":"Ofa ya Familia","Family Room with Balcony — up to 4 guests":"Chumba cha Familia chenye Baraza — hadi wageni 4",
+    "Our family room with balcony sleeps up to 4 guests with four beds, a private kitchen and dining. Ideal for parents and children — all ages welcome at check-in.":"Chumba chetu cha familia chenye baraza hulala hadi wageni 4 katika vitanda vinne, chenye jiko binafsi na sehemu ya kulia. Kinafaa kwa wazazi na watoto — rika zote zinakaribishwa wakati wa kuingia.",
     "View Room →":"Tazama Chumba →","Daily Offer":"Ofa ya Kila Siku","Full buffet breakfast included in all bookings":"Kifungua kinywa kamili cha buffet kimejumuishwa katika hifadhi zote",
     "Start every morning right — Full English, Irish, vegetarian, and Asian options served fresh from our kitchen.":"Anza kila asubuhi vizuri — chaguo kamili za Kiingereza, Kiayalandi, mboga, na Kiasia zinazoandaliwa upya kutoka jiko letu.",
     "Reserve a Table →":"Weka Meza →","Guest stories":"Hadithi za Wageni","What our guests say":"Wageni wetu wanasema nini",
@@ -174,7 +189,7 @@
     "No age restriction at check-in. Children are warmly welcomed, and pets stay free — making Forest Hill a true home for the whole family.":"Hakuna kizuizi cha umri wakati wa kuingia. Watoto wanakaribishwa kwa joto, na wanyama vipenzi hukaa bure — kuifanya Forest Hill kuwa nyumba ya kweli kwa familia nzima.",
     "Full Room Amenities":"Huduma Kamili za Chumba",
     "Every room includes air-conditioning, private bathroom, work desk, TV, and free WiFi — with garden views and daily housekeeping as standard.":"Kila chumba kina kiyoyozi, bafu binafsi, meza ya kazi, TV, na WiFi ya bure — chenye mandhari ya bustani na usafi wa kila siku kama kawaida.",
-    "Room types — from our Economy Bedroom to the VIP Suite.":"Aina za vyumba — kutoka Chumba cha Kawaida hadi Suite ya VIP.",
+    "Room types — from our Junior Bedroom to the VIP Suite.":"Aina za vyumba — kutoka Chumba Kidogo hadi Suite ya VIP.",
     "On-site facilities including pool, sauna, gym, restaurant, and bar.":"Huduma za hapa hapa zikiwemo bwawa, sauna, mazoezi, mkahawa, na baa.",
     "From Mbeya Airport — with our complimentary shuttle running daily.":"Kutoka Uwanja wa Ndege wa Mbeya — na usafiri wetu wa bure unaofanya kazi kila siku.",
     "Our story":"Hadithi yetu","A welcoming retreat in the heart of Southern Tanzania.":"Mahali pa kukaribisha katikati ya Kusini mwa Tanzania.",
@@ -194,7 +209,7 @@
     "The free airport transfer was very convenient. Room had working AC, hot water, and WiFi — everything a business traveller needs.":"Usafiri wa bure wa uwanja wa ndege ulikuwa rahisi sana. Chumba kilikuwa na kiyoyozi kinachofanya kazi, maji ya moto, na WiFi — kila kitu ambacho msafiri wa biashara anahitaji.",
     "Ideal family stop in Mbeya":"Mahali bora pa familia Mbeya",
     "Brought three kids and a dog. The family room was roomy and pets were genuinely welcome at no extra charge. We appreciated the outdoor space.":"Nilileta watoto watatu na mbwa. Chumba cha familia kilikuwa pana na wanyama vipenzi walikaribishwa kwa kweli bila malipo ya ziada. Tulithamini eneo la nje.",
-    "Reservations":"Hifadhi","How to find us?":"Jinsi ya kutupata?","Forest Hill Road, 53103 Mbeya, Tanzania — 1.9 km from Mbeya Airport.":"Forest Hill Road, 53103 Mbeya, Tanzania — kilomita 1.9 kutoka Uwanja wa Ndege wa Mbeya.",
+    "Reservations":"Hifadhi","How to find us?":"Jinsi ya kutupata?","Forest Hill Road, P.O. Box 2237, Mbeya, Tanzania — 1.9 km from Mbeya Airport.":"Forest Hill Road, Sanduku la Posta 2237, Mbeya, Tanzania — kilomita 1.9 kutoka Uwanja wa Ndege wa Mbeya.",
     "Book Room Today":"Weka Chumba Leo","Get In Touch":"Wasiliana Nasi",
     /* --- rooms list --- */
     "Rooms & Suites":"Vyumba & Suite","Search":"Tafuta","Filter":"Chuja","Max Price —":"Bei ya Juu —",
@@ -280,6 +295,7 @@
     try{ localStorage.setItem('fh-lang',LANG); }catch(e){}
     document.documentElement.lang=LANG;
     i18nWalk(document.body);
+    try{ window.dispatchEvent(new Event('fh-hero-title-remeasure')); }catch(_){}
     document.querySelectorAll('[data-lang-btn]').forEach(b=> b.classList.toggle('on', b.dataset.langBtn===LANG));
   }
   function initI18n(){
@@ -321,9 +337,9 @@
     <div class="topbar">
       <div class="wrap-wide">
         <div class="tb-group hide-sm">
-          <a href="tel:+255000000000">Tel. +255 000 000 000</a>
+          <a href="tel:${CONTACT.phoneTel}">Tel. ${CONTACT.phone}</a>
           <span class="tb-sep">·</span>
-          <a href="mailto:info@foresthillmbeya.co.tz">info@foresthillmbeya.co.tz</a>
+          <a href="mailto:${CONTACT.email}">${CONTACT.email}</a>
         </div>
         <div class="tb-group">
           <a href="#" data-open-auth="login">Login</a><span class="tb-sep">/</span><a href="#" data-open-auth="register">Register</a>
@@ -390,9 +406,9 @@
           <div class="footer-col">
             <h4>Contact</h4>
             <ul>
-              <li>Forest Hill Road<br>53103 Mbeya, Tanzania</li>
-              <li><a href="tel:+255000000000">+255 000 000 000</a></li>
-              <li><a href="mailto:info@foresthillmbeya.co.tz">info@foresthillmbeya.co.tz</a></li>
+              <li>${CONTACT.addressHtml}</li>
+              <li><a href="tel:${CONTACT.phoneTel}">${CONTACT.phone}</a></li>
+              <li><a href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
               <li>Check-in: 10:00 — 23:00</li>
             </ul>
           </div>
@@ -472,7 +488,66 @@
       b.addEventListener('click', e=>{ e.preventDefault(); if(window.openAuth) window.openAuth(b.dataset.openAuth); });
     });
 
-    initReveal(); initCounters(); initBookingDefaults(); initImageFallbacks(); buildTweakPanel(); initI18n();
+    initReveal(); initCounters(); initBookingDefaults(); initImageFallbacks(); buildTweakPanel(); initI18n(); initHeroTitleRotate();
+  }
+
+  /* ---------- hero title — swipe between headline & slogan ---------- */
+  function initHeroTitleRotate(){
+    const root = document.querySelector('[data-hero-title]');
+    if(!root) return;
+    const viewport = root.querySelector('.hero-title-viewport');
+    const track = root.querySelector('[data-hero-title-track]');
+    if(!viewport || !track) return;
+    const slides = [...track.querySelectorAll('.hero-title-slide')];
+    if(slides.length < 2) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const HOLD = 2000;
+    const DUR = 720;
+    const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
+    let idx = 0;
+    let timer = null;
+    let heights = [];
+
+    function measure(){
+      let max = 0;
+      slides.forEach(s=>{
+        s.style.height = 'auto';
+        max = Math.max(max, s.getBoundingClientRect().height);
+      });
+      heights = slides.map(()=> max);
+      slides.forEach(s=>{ s.style.height = max + 'px'; });
+      viewport.style.height = max + 'px';
+      track.style.height = (max * slides.length) + 'px';
+      track.style.transform = `translate3d(0,${-idx * max}px,0)`;
+    }
+
+    function go(next){
+      idx = next;
+      const y = -idx * heights[0];
+      if(reduced){
+        track.style.transition = 'none';
+        track.style.transform = `translate3d(0,${y}px,0)`;
+        return;
+      }
+      track.style.transition = `transform ${DUR}ms ${EASE}`;
+      track.style.transform = `translate3d(0,${y}px,0)`;
+    }
+
+    function tick(){
+      go((idx + 1) % slides.length);
+      timer = setTimeout(tick, HOLD + DUR);
+    }
+
+    measure();
+    window.addEventListener('resize', measure, {passive:true});
+    window.addEventListener('fh-hero-title-remeasure', measure);
+    timer = setTimeout(tick, HOLD);
+
+    root.addEventListener('mouseenter', ()=>{ if(timer){ clearTimeout(timer); timer = null; } });
+    root.addEventListener('mouseleave', ()=>{
+      if(!timer) timer = setTimeout(tick, HOLD);
+    });
   }
 
   /* ---------- reveal on scroll ---------- */

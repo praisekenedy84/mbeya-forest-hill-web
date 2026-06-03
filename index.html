@@ -17,8 +17,15 @@
 .hero .wrap{ position:relative; z-index:3; width:100%; padding-top:120px; padding-bottom:clamp(80px,14vh,140px); }
 /* Hero H1: uppercase, tight, large — matches demo (75px / text-transform:uppercase) */
 .hero h1{
-  color:#fff; max-width:14ch; margin:.6rem 0 1.6rem;
+  color:#fff; max-width:min(100%,24ch); margin:.6rem 0 1.6rem;
   text-transform:uppercase; letter-spacing:.04em; line-height:.98;
+}
+.hero-title-viewport{ display:block; overflow:hidden; }
+.hero-title-track{ display:flex; flex-direction:column; will-change:transform; }
+.hero-title-slide{ flex-shrink:0; display:block; }
+.hero-title-slide--slogan{ letter-spacing:.06em; max-width:22ch; }
+@media(prefers-reduced-motion:reduce){
+  .hero-title-track{ transition:none !important; }
 }
 .hero .hero-lede{ color:rgba(255,255,255,.76); max-width:46ch; font-size:.97rem; line-height:1.78; }
 .hero-cta{ display:flex; gap:1rem; margin-top:2.8rem; flex-wrap:wrap; }
@@ -85,7 +92,14 @@
   <img class="hero-bg" src="./assets/images/hero-section-image.jpg" alt="Mbeya Forest Hill Motel exterior">
   <div class="wrap">
     <span class="eyebrow light">Mbeya, Tanzania</span>
-    <h1 class="display fw-light">Your Comfort Retreat in the Heart of <span class="italic">Mbeya</span></h1>
+    <h1 class="display fw-light hero-title-rotate" data-hero-title aria-live="polite">
+      <span class="hero-title-viewport">
+        <span class="hero-title-track" data-hero-title-track>
+          <span class="hero-title-slide">Your Comfort Retreat in the Heart of Mbeya</span>
+          <span class="hero-title-slide hero-title-slide--slogan">Mbeya Hospitality At It's Best</span>
+        </span>
+      </span>
+    </h1>
     <p class="hero-lede">Nestled in the lush hills of Mbeya, Forest Hill Motel offers air-conditioned rooms, an indoor pool, sauna, fitness centre, and a full buffet breakfast — just 1.9 km from Mbeya Airport.</p>
     <div class="hero-cta">
       <a class="btn btn--accent" href="booking.html">Book Your Stay</a>
@@ -152,7 +166,7 @@
         <span class="eyebrow">Accommodation</span>
         <h2 class="display" style="margin-top:1rem;max-width:18ch">Rooms for every type of stay.</h2>
       </div>
-      <p class="muted" style="max-width:38ch">Four room types to suit solo travellers, couples, and families — all with air-conditioning, private bathrooms, TV, and free WiFi.</p>
+      <p class="muted" style="max-width:38ch">Five room types to suit solo travellers, couples, and families — all with air-conditioning, private bathrooms, TV, and free WiFi.</p>
     </div>
     <div class="grid g-3" id="roomGrid"></div>
     <div class="center" style="margin-top:3rem" data-reveal>
@@ -259,7 +273,7 @@
       </article>
       <article class="offer-card" data-reveal>
         <div class="media"><img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/743884475.jpg?k=454c9e4ce37cba9242bc43475c04ea71ab732a8a5242c48a74c969210a22d40a&o=" alt="Family room"></div>
-        <div class="body"><div class="offer-date">Family Offer</div><h3 class="display"><a href="booking.html?room=family-balcony">Family Room with Balcony — up to 6 guests</a></h3><p class="muted" style="font-size:.92rem">Our family room with balcony sleeps up to 6 guests across four beds, with a private kitchen and dining. Children of all ages are welcome — no age restriction at check-in.</p><a class="link-arrow" href="booking.html" style="margin-top:1.2rem">View Room →</a></div>
+        <div class="body"><div class="offer-date">Family Offer</div><h3 class="display"><a href="booking.html?room=family-balcony">Family Room with Balcony — up to 4 guests</a></h3><p class="muted" style="font-size:.92rem">Our family room with balcony sleeps up to 4 guests with four beds, a private kitchen and dining. Ideal for parents and children — all ages welcome at check-in.</p><a class="link-arrow" href="booking.html" style="margin-top:1.2rem">View Room →</a></div>
       </article>
       <article class="offer-card" data-reveal>
         <div class="media"><img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2024/03/h4-img6.webp" alt="Breakfast offer"></div>
@@ -306,15 +320,18 @@ window.CARMELINA_ROOMS = [
   { slug:'vip-suite', name:'VIP Suite', price:150000, cap:4, beds:2, img:'./assets/images/gallery/rooms-suite-bed.jpg',
     features:['2 Beds','Meeting Room','Private Kitchen','Dining','Wi-Fi &amp; Fridge','TV'],
     desc:'Our finest suite — two beds, a private meeting room, full kitchen and dining for a complete home-away-from-home stay.' },
-  { slug:'family-balcony', name:'Family Room with Balcony', price:80000, cap:6, beds:4, img:'./assets/images/gallery/rooms-double-bed.jpg',
-    features:['4 Beds','Private Kitchen','Dining','Balcony','Wi-Fi &amp; Fridge','TV'],
-    desc:'A spacious double bed-room for families — four beds, a private kitchen and dining area, and a balcony with Mbeya views.' },
-  { slug:'budget-bedroom', name:'Budget Bedroom', price:50000, cap:2, beds:1, img:'./assets/images/gallery/rooms-cozy-bed.jpg',
+  { slug:'family-balcony', name:'Family Room with Balcony', price:80000, cap:4, beds:2, img:'./assets/images/gallery/rooms-double-bed.jpg',
+    features:['4 Beds','Private Kitchen','Dining','Wi-Fi &amp; Fridge','TV'],
+    desc:'A spacious double bed-room for families — four beds, private kitchen and dining, with a balcony overlooking Mbeya.' },
+  { slug:'standard-premium', name:'Standard Premium Room', price:60000, cap:2, beds:1, img:'./assets/images/gallery/rooms-cozy-bed.jpg',
+    features:['1 King Size Bed','Comfortable Sofa','Dressing Table','Fridge','TV'],
+    desc:'Premium comfort — a king-size bed, sofa, dressing table, fridge and TV for a relaxed stay.' },
+  { slug:'standard-room', name:'Standard Room', price:50000, cap:2, beds:1, img:'./assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.40.jpeg',
     features:['1 Bed','Comfortable Sofa','Dressing Table','Fridge','TV'],
-    desc:'Comfortable and affordable — a single bed, a cozy sofa and a dressing table for a restful stay.' },
-  { slug:'economy-veranda', name:'Economy Bedroom with Veranda', price:30000, cap:2, beds:1, img:'./assets/images/gallery/rooms-twin-bed.jpg',
-    features:['1 Bed','Private Veranda','Fridge','TV'],
-    desc:'Our best-value room with a private veranda — a simple, comfortable single bedroom with the essentials.' },
+    desc:'A well-appointed standard room with a single bed, comfortable sofa, dressing table, fridge and TV.' },
+  { slug:'junior-bedroom', name:'Junior Bedroom', price:30000, cap:2, beds:1, img:'./assets/images/gallery/rooms-twin-bed.jpg',
+    features:['1 Bed','Fridge','TV'],
+    desc:'Our best-value room — a simple, comfortable single bedroom with fridge and TV.' },
 ];
 </script>
 <script src="assets/site.js"></script>

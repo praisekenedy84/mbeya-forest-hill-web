@@ -118,7 +118,7 @@ input[type=range]{ width:100%; accent-color:var(--accent); }
       <!-- LIST -->
       <div>
         <div class="list-top">
-          <span class="count"><b id="resCount">4</b> rooms available</span>
+          <span class="count"><b id="resCount">5</b> rooms available</span>
           <div class="sort-field">
             <span>Sort by</span>
             <select id="sortSel">
@@ -144,18 +144,22 @@ window.CARMELINA_ROOMS = [
     img:'./assets/images/gallery/rooms-suite-bed.jpg',
     desc:'Our finest accommodation — a spacious suite with two beds, a private meeting room, full kitchen and dining area for a complete home-away-from-home stay.',
     features:['2 Beds','Meeting Room','Private Kitchen','Dining','Wi-Fi & Fridge','TV'] },
-  { slug:'family-balcony', name:'Family Room with Balcony', price:80000, cap:6, beds:4,
+  { slug:'family-balcony', name:'Family Room with Balcony', price:80000, cap:4, beds:2,
     img:'./assets/images/gallery/rooms-double-bed.jpg',
-    desc:'A generous double bed-room ideal for families, with four beds, a private kitchen and dining area, and a balcony to enjoy the Mbeya views.',
-    features:['4 Beds','Private Kitchen','Dining','Balcony','Wi-Fi & Fridge','TV'] },
-  { slug:'budget-bedroom', name:'Budget Bedroom', price:50000, cap:2, beds:1,
+    desc:'A generous double bed-room ideal for families — four beds, private kitchen and dining, with a balcony to enjoy the Mbeya views.',
+    features:['4 Beds','Private Kitchen','Dining','Wi-Fi & Fridge','TV'] },
+  { slug:'standard-premium', name:'Standard Premium Room', price:60000, cap:2, beds:1,
     img:'./assets/images/gallery/rooms-cozy-bed.jpg',
-    desc:'A comfortable and affordable room with a single bed, a cozy sofa and a dressing table — everything you need for a restful stay.',
+    desc:'Premium comfort with a king-size bed, comfortable sofa, dressing table, fridge and TV.',
+    features:['1 King Size Bed','Comfortable Sofa','Dressing Table','Fridge','TV'] },
+  { slug:'standard-room', name:'Standard Room', price:50000, cap:2, beds:1,
+    img:'./assets/images/budget-bedroom/WhatsApp%20Image%202026-05-31%20at%2004.31.40.jpeg',
+    desc:'A well-appointed standard room with a single bed, comfortable sofa, dressing table, fridge and TV.',
     features:['1 Bed','Comfortable Sofa','Dressing Table','Fridge','TV'] },
-  { slug:'economy-veranda', name:'Economy Bedroom with Veranda', price:30000, cap:2, beds:1,
+  { slug:'junior-bedroom', name:'Junior Bedroom', price:30000, cap:2, beds:1,
     img:'./assets/images/gallery/rooms-twin-bed.jpg',
-    desc:'Our best-value room with a private veranda — a simple, comfortable single bedroom with all the essentials for a great night.',
-    features:['1 Bed','Private Veranda','Fridge','TV'] },
+    desc:'Our best-value room — a simple, comfortable single bedroom with fridge and TV.',
+    features:['1 Bed','Fridge','TV'] },
 ];
 </script>
 <script src="assets/site.js"></script>
