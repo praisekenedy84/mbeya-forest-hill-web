@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Room Detail — Mbeya Forest Hill Motel</title>
+<script>window.CARMELINA_SEO={title:'Room Detail — Mbeya Forest Hill Motel',description:'View room details and book your stay at Mbeya Forest Hill Motel in Mbeya, Tanzania.',path:'room.html',breadcrumb:[{name:'Home',path:'index.html'},{name:'Rooms',path:'rooms.html'},{name:'Room',path:'room.html'}]};</script>
+<script src="assets/seo.js"></script>
 <link rel="stylesheet" href="assets/site.css">
 <style>
 .detail-layout{ display:grid; grid-template-columns:1fr 360px; gap:clamp(28px,4vw,64px); align-items:start; }
@@ -199,7 +201,36 @@ window.CARMELINA_ROOMS = [
   const r=rooms.find(x=>x.slug===slug)||rooms[0];
   const money=n=>n.toLocaleString('en-US');
 
-  document.title=r.name+' — Mbeya Forest Hill Motel';
+  if(window.CARMELINA_UPDATE_SEO){
+    window.CARMELINA_UPDATE_SEO({
+      title: r.name + ' — Mbeya Forest Hill Motel',
+      description: r.desc + ' From ' + money(r.price) + ' TZS per night at Mbeya Forest Hill Motel.',
+      path: 'room.html?room=' + r.slug,
+      image: r.img,
+      breadcrumb: [
+        { name: 'Home', path: 'index.html' },
+        { name: 'Rooms', path: 'rooms.html' },
+        { name: r.name, path: 'room.html?room=' + r.slug },
+      ],
+      roomSchema: {
+        '@context': 'https://schema.org',
+        '@type': 'HotelRoom',
+        name: r.name,
+        description: r.desc,
+        image: r.img,
+        occupancy: { '@type': 'QuantitativeValue', maxValue: r.cap },
+        bed: { '@type': 'BedDetails', numberOfBeds: r.beds },
+        offers: {
+          '@type': 'Offer',
+          price: r.price,
+          priceCurrency: 'TZS',
+          availability: 'https://schema.org/InStock',
+        },
+      },
+    });
+  } else {
+    document.title = r.name + ' — Mbeya Forest Hill Motel';
+  }
   document.getElementById('heroBg').src=r.img;
   document.getElementById('heroTitle').textContent=r.name;
   document.getElementById('crumb').textContent=r.name;
