@@ -16,6 +16,31 @@
     addressLine: 'Forest Hill Road, P.O. Box 2237, Mbeya, Tanzania — 1.9 km from Mbeya Airport.',
   };
 
+  const FORM_GUEST_ERROR = 'We could not send your request right now. Please call +255 718 541 688 or email us directly.';
+
+  /* FormSubmit.co — forwards static-site forms to CONTACT.email (verify inbox once on first use) */
+  async function sendFormEmail(fields){
+    if(location.protocol === 'file:'){
+      throw new Error('Forms must be tested through a web server. In this folder run: npm start — then open http://localhost:8888');
+    }
+    const body = new FormData();
+    Object.entries(Object.assign({ _captcha: 'false' }, fields)).forEach(([k, v]) => {
+      if(v != null && v !== '') body.append(k, String(v));
+    });
+    const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(CONTACT.email), {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body,
+    });
+    const data = await res.json().catch(() => ({}));
+    if(!res.ok || data.success === 'false' || data.success === false){
+      if(data.message) console.warn('[FormSubmit]', data.message);
+      throw new Error(FORM_GUEST_ERROR);
+    }
+    return data;
+  }
+  window.CARMELINA_FORMS = { email: CONTACT.email, send: sendFormEmail, guestError: FORM_GUEST_ERROR };
+
   /* ============================================================
      TWEAKS — palette / type / shape directions (persist across pages)
      ============================================================ */
@@ -387,10 +412,10 @@
             <span class="brand-mark">Forest Hill</span>
             <p style="margin-top:1.2rem;max-width:34ch;line-height:1.6">Nestled in the hills of Mbeya, Tanzania — offering comfortable rooms, an indoor pool, restaurant, and warm Tanzanian hospitality just 1.9 km from Mbeya Airport.</p>
             <div class="footer-social">
-              <a href="#" aria-label="Facebook">${ICON.fb}</a>
-              <a href="#" aria-label="Instagram">${ICON.ig}</a>
-              <a href="#" aria-label="Twitter">${ICON.tw}</a>
-              <a href="#" aria-label="Tripadvisor">${ICON.ta}</a>
+              <a href="https://www.facebook.com/profile.php?id=61586840549038" target="_blank" rel="noopener noreferrer" aria-label="Facebook">${ICON.fb}</a>
+              <a href="https://www.instagram.com/mbeyaforesthillmotel/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${ICON.ig}</a>
+              <!-- <a href="#" aria-label="Twitter">${ICON.tw}</a> -->
+              <!-- <a href="#" aria-label="Tripadvisor">${ICON.ta}</a> -->
             </div>
           </div>
           <div class="footer-col">

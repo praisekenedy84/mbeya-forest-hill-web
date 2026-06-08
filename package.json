@@ -1,0 +1,7 @@
+{
+  "name": "mbeya-forest-hill-motel",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes http-server . -p 8888 -o"
+  }
+}

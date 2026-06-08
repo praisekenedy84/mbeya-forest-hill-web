@@ -87,9 +87,11 @@
       <div class="step-bar"></div>
       <div class="step-dot" data-s="3"><span class="n">3</span><span class="t">Details</span></div>
       <div class="step-bar"></div>
+      <!-- Payment step — enable when online payments are added
       <div class="step-dot" data-s="4"><span class="n">4</span><span class="t">Payment</span></div>
       <div class="step-bar"></div>
-      <div class="step-dot" data-s="5"><span class="n">5</span><span class="t">Done</span></div>
+      -->
+      <div class="step-dot" data-s="4"><span class="n">4</span><span class="t">Done</span></div>
     </div>
 
     <div class="book-grid">
@@ -118,7 +120,7 @@
         <!-- STEP 3 -->
         <div class="panel" data-panel="3" hidden>
           <h2 class="display">Guest details</h2>
-          <p class="sub">Tell us who's staying so we can prepare everything for your arrival.</p>
+          <p class="sub">Tell us who's staying so we can prepare everything for your arrival. Payment is collected at check-in.</p>
           <div class="frm-grid">
             <div class="frm"><label>First Name</label><input type="text" id="fname" placeholder="Jane"></div>
             <div class="frm"><label>Last Name</label><input type="text" id="lname" placeholder="Doe"></div>
@@ -126,10 +128,10 @@
             <div class="frm"><label>Phone</label><input type="tel" id="phone" placeholder="+1 555 000 0000"></div>
             <div class="frm full"><label>Special Requests</label><textarea id="notes" placeholder="Early check-in, dietary needs, celebration…"></textarea></div>
           </div>
-          <div class="step-actions"><button class="btn btn--outline" data-prev>← Back</button><button class="btn btn--accent" data-next>Continue →</button></div>
+          <div class="step-actions"><button class="btn btn--outline" data-prev>← Back</button><button class="btn btn--accent" data-next>Confirm Booking</button></div>
         </div>
 
-        <!-- STEP 4 -->
+        <!-- STEP 4 — Payment (disabled — enable when online payments are added)
         <div class="panel" data-panel="4" hidden>
           <h2 class="display">Payment</h2>
           <p class="sub">You won't be charged until check-in. Cancellation is free up to 24h before arrival.</p>
@@ -147,13 +149,14 @@
           </div>
           <div class="step-actions"><button class="btn btn--outline" data-prev>← Back</button><button class="btn btn--accent" data-next>Confirm Booking</button></div>
         </div>
+        -->
 
-        <!-- STEP 5 -->
-        <div class="panel" data-panel="5" hidden>
+        <!-- STEP 4 — Confirmation -->
+        <div class="panel" data-panel="4" hidden>
           <div class="confirm">
             <div class="tick">✓</div>
             <h2 class="display">Your stay is confirmed</h2>
-            <p class="sub" style="margin-bottom:0">A confirmation has been sent to <b id="cEmail">your email</b>.</p>
+            <p class="sub" style="margin-bottom:0">A confirmation email has been sent to <b id="cEmail">your email</b>. Our team will follow up shortly.</p>
             <div class="ref">Ref · <span id="cRef">CAR-000000</span></div>
             <p class="muted" id="cLine" style="max-width:46ch;margin:0 auto 2rem"></p>
             <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
@@ -257,15 +260,59 @@ window.CARMELINA_ROOMS = [
     document.querySelectorAll('.step-dot').forEach(d=>{ const s=+d.dataset.s; d.classList.toggle('active',s===step); d.classList.toggle('done',s<step); });
     document.querySelectorAll('.step-bar').forEach((b,i)=> b.classList.toggle('fill', i<step-1));
     window.scrollTo({top:0,behavior:'smooth'});
-    if(step===5){
-      const ref='CAR-'+Math.floor(100000+Math.random()*899999);
-      document.getElementById('cRef').textContent=ref;
+    if(step===4){
+      document.getElementById('cRef').textContent=state.ref;
       const em=document.getElementById('email').value||'your email';
       document.getElementById('cEmail').textContent=em;
       document.getElementById('cLine').textContent=`We look forward to welcoming you to the ${state.room.name} from ${fmt(state.ci)} to ${fmt(state.co)}.`;
     }
   }
-  document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>show(Math.min(5,state.step+1))));
+
+  async function confirmBooking(btn){
+    const fname=document.getElementById('fname').value.trim();
+    const lname=document.getElementById('lname').value.trim();
+    const email=document.getElementById('email').value.trim();
+    const phone=document.getElementById('phone').value.trim();
+    const notes=document.getElementById('notes').value.trim();
+    if(!fname||!lname||!email){
+      alert('Please fill in your first name, last name, and email before confirming.');
+      show(3);
+      return;
+    }
+    const ref='CAR-'+Math.floor(100000+Math.random()*899999);
+    state.ref=ref;
+    const n=nights(), sub=state.room.price*n, total=sub;
+    btn.disabled=true;
+    btn.textContent='Confirming…';
+    try {
+      await window.CARMELINA_FORMS.send({
+        _subject: 'New Reservation ' + ref + ' — Mbeya Forest Hill Motel',
+        _autoresponse: 'Thank you for your reservation request at Mbeya Forest Hill Motel (Ref: ' + ref + '). Our team will contact you shortly to confirm your stay.',
+        'Booking Reference': ref,
+        'Guest Name': fname + ' ' + lname,
+        email: email,
+        Phone: phone || '—',
+        Room: state.room.name,
+        'Check-in': state.ci,
+        'Check-out': state.co,
+        Nights: String(n),
+        Adults: String(state.adults),
+        Children: String(state.children),
+        'Total (TZS)': money(total),
+        'Special Requests': notes || '—',
+      });
+      show(4);
+    } catch (err) {
+      btn.disabled=false;
+      btn.textContent='Confirm Booking';
+      alert((err && err.message) || ('Could not send your reservation. Please call +255 718 541 688 or email ' + window.CARMELINA_FORMS.email + '.'));
+    }
+  }
+
+  document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{
+    if(state.step===3) return confirmBooking(b);
+    show(Math.min(4,state.step+1));
+  }));
   document.querySelectorAll('[data-prev]').forEach(b=>b.addEventListener('click',()=>show(Math.max(1,state.step-1))));
   document.querySelectorAll('.step-dot').forEach(d=>d.addEventListener('click',()=>{ const s=+d.dataset.s; if(s<state.step) show(s); }));
 

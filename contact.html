@@ -85,17 +85,19 @@
       <div class="contact-form">
         <h3 class="display" style="font-size:1.6rem">Reservation &amp; Enquiries</h3>
         <form id="cForm">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="cf-grid">
-            <div class="cf"><label>Full Name</label><input type="text" required placeholder="Jane Doe"></div>
-            <div class="cf"><label>Email</label><input type="email" required placeholder="jane@email.com"></div>
-            <div class="cf"><label>Phone</label><input type="tel" placeholder="+1 555 000 0000"></div>
+            <div class="cf"><label>Full Name</label><input type="text" name="name" required placeholder="Jane Doe"></div>
+            <div class="cf"><label>Email</label><input type="email" name="email" required placeholder="jane@email.com"></div>
+            <div class="cf"><label>Phone</label><input type="tel" name="phone" placeholder="+255 718 000 000"></div>
             <div class="cf"><label>Subject</label>
-              <select><option>Room Reservation</option><option>Airport Shuttle</option><option>Conference &amp; Events</option><option>Dining &amp; Restaurant</option><option>General Enquiry</option></select>
+              <select name="subject"><option>Room Reservation</option><option>Airport Shuttle</option><option>Conference &amp; Events</option><option>Dining &amp; Restaurant</option><option>General Enquiry</option></select>
             </div>
-            <div class="cf full"><label>Message</label><textarea required placeholder="Tell us how we can help…"></textarea></div>
+            <div class="cf full"><label>Message</label><textarea name="message" required placeholder="Tell us how we can help…"></textarea></div>
           </div>
           <button class="btn btn--accent" type="submit" style="margin-top:1.6rem">Send Message</button>
           <div class="cf-ok" id="cfOk"><span style="font-size:1.2rem">✓</span> Thank you — your message has been sent. We'll be in touch shortly.</div>
+          <p class="cf-err" id="cfErr" style="display:none;color:#b45309;font-size:.92rem;margin-top:1rem"></p>
         </form>
       </div>
       <div class="contact-map">
@@ -119,9 +121,35 @@
 <script>window.CARMELINA = { active:'contact', transparentHeader:true };</script>
 <script src="assets/site.js"></script>
 <script>
-document.getElementById('cForm').addEventListener('submit',function(e){
-  e.preventDefault(); document.getElementById('cfOk').classList.add('show'); this.querySelector('button').textContent='Sent ✓';
-  this.querySelectorAll('input,textarea').forEach(i=>i.value='');
+document.getElementById('cForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = this.querySelector('button[type=submit]');
+  const ok = document.getElementById('cfOk');
+  const errEl = document.getElementById('cfErr');
+  ok.classList.remove('show');
+  errEl.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  const fd = new FormData(this);
+  try {
+    await window.CARMELINA_FORMS.send({
+      _subject: 'Contact: ' + (fd.get('subject') || 'Enquiry') + ' — Mbeya Forest Hill Motel',
+      _autoresponse: 'Thank you for contacting Mbeya Forest Hill Motel. We have received your message and will reply within one business day.',
+      name: fd.get('name'),
+      email: fd.get('email'),
+      phone: fd.get('phone') || '—',
+      subject: fd.get('subject'),
+      message: fd.get('message'),
+    });
+    ok.classList.add('show');
+    btn.textContent = 'Sent ✓';
+    this.reset();
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+    errEl.textContent = (err && err.message) || ('Could not send right now. Please email us at ' + window.CARMELINA_FORMS.email + ' or call +255 718 541 688.');
+    errEl.style.display = 'block';
+  }
 });
 </script>
 </body>
