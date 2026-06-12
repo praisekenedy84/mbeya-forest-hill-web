@@ -12,8 +12,10 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rooms &amp; Suites — Mbeya Forest Hill Motel</title>
-<script>window.CARMELINA_SEO={title:'Rooms & Suites — Mbeya Forest Hill Motel',description:'Browse rooms at Mbeya Forest Hill Motel — VIP Suite, Family Room with Balcony, Standard Premium, Standard Room, and Junior Bedroom. Air-conditioned rooms with WiFi from 30,000 TZS per night.',path:'rooms.html',image:'./assets/images/gallery/rooms-suite-bed.jpg',breadcrumb:[{name:'Home',path:'index.html'},{name:'Rooms',path:'rooms.html'}]};</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Rooms &amp; Suites — Mbeya Forest Hill Hotel & Motel Tanzania</title>
+<script>window.CARMELINA_SEO={title:'Rooms & Suites — Mbeya Forest Hill Hotel & Motel Tanzania',description:'Browse rooms at Mbeya Forest Hill Hotel & Motel Tanzania — VIP Suite, Family Room with Balcony, Standard Premium, Standard Room, and Junior Bedroom. Air-conditioned rooms with WiFi from 30,000 TZS per night.',path:'rooms.html',image:'./assets/images/gallery/rooms-suite-bed.jpg',breadcrumb:[{name:'Home',path:'index.html'},{name:'Rooms',path:'rooms.html'}]};</script>
 <script src="assets/seo.js"></script>
 <link rel="stylesheet" href="assets/site.css">
 <style>
@@ -70,7 +72,7 @@ input[type=range]{ width:100%; accent-color:var(--accent); }
 <div data-site-header></div>
 
 <section class="page-hero" data-screen-label="Rooms — Hero">
-  <img class="bg" src="./assets/images/rooms-and-suites-hero.jpg" alt="Mbeya Forest Hill rooms">
+  <img class="bg" src="./assets/images/rooms-and-suites-hero.jpg" alt="Mbeya Forest Hill rooms" width="2048" height="1365" fetchpriority="high">
   <div class="wrap">
     <span class="eyebrow light">Accommodation</span>
     <h1 class="display fw-light" style="margin-top:1rem">Rooms &amp; Suites</h1>
@@ -86,9 +88,9 @@ input[type=range]{ width:100%; accent-color:var(--accent); }
         <div class="widget">
           <h4>Check Availability</h4>
           <form data-booking-form>
-            <div class="mini-field"><label>Check — In</label><input type="text" data-checkin readonly></div>
-            <div class="mini-field"><label>Check — Out</label><input type="text" data-checkout readonly></div>
-            <div class="mini-field"><label>Guests</label><select><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select></div>
+            <div class="mini-field"><label for="roomsCheckin">Check — In</label><input type="text" id="roomsCheckin" data-checkin readonly></div>
+            <div class="mini-field"><label for="roomsCheckout">Check — Out</label><input type="text" id="roomsCheckout" data-checkout readonly></div>
+            <div class="mini-field"><label for="roomsGuests">Guests</label><select id="roomsGuests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select></div>
             <button class="btn btn--accent btn--block" type="submit" style="margin-top:.4rem">Search</button>
           </form>
         </div>
@@ -189,7 +191,7 @@ window.CARMELINA_ROOMS = [
 
   function card(r){
     return `<article class="room-row">
-      <div class="media"><span class="price-tag"><b>${fmt(r.price)}</b> TZS / night</span><img src="${r.img}" alt="${r.name}"></div>
+      <div class="media"><span class="price-tag"><b>${fmt(r.price)}</b> TZS / night</span><img src="${r.img}" alt="${r.name}" loading="lazy"></div>
       <div class="body">
         <h3 class="display"><a href="room.html?room=${r.slug}">${r.name}</a></h3>
         <p class="muted" style="font-size:.92rem">${r.desc}</p>
@@ -230,7 +232,7 @@ window.CARMELINA_ROOMS = [
   // popular sidebar
   document.getElementById('popularList').innerHTML = rooms.slice().sort((a,b)=>b.price-a.price).slice(0,3).map(r=>`
     <a class="side-thumb" href="room.html?room=${r.slug}">
-      <img src="${r.img}" alt="${r.name}">
+      <img src="${r.img}" alt="${r.name}" loading="lazy">
       <span><span class="st-name">${r.name}</span><br><span class="st-price"><b>${fmt(r.price)}</b> TZS / night</span></span>
     </a>`).join('');
 

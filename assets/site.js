@@ -123,7 +123,7 @@
     "Book Room":"Weka Chumba","Book Your Stay":"Weka Malazi Yako","Login":"Ingia","Register":"Jisajili",
     "Find Us":"Tupate","Terms of Use":"Masharti ya Matumizi","Privacy Policy":"Sera ya Faragha",
     "Tel. +255 718 541 688":"Simu. +255 718 541 688","Check-in: 10:00 — 23:00":"Kuingia: 10:00 — 23:00",
-    "© 2026 Mbeya Forest Hill Motel. All rights reserved.":"© 2026 Mbeya Forest Hill Motel. Haki zote zimehifadhiwa.",
+    "© 2026 Mbeya Forest Hill Hotel & Motel Tanzania. All rights reserved.":"© 2026 Mbeya Forest Hill Hotel & Motel Tanzania. Haki zote zimehifadhiwa.",
     "We accept Visa, Mastercard, American Express, and cash on-site.":"Tunapokea Visa, Mastercard, American Express, na fedha taslimu hapa hapa.",
     "Nestled in the hills of Mbeya, Tanzania — offering comfortable rooms, an indoor pool, restaurant, and warm Tanzanian hospitality just 1.9 km from Mbeya Airport.":"Iliyoko katika milima ya Mbeya, Tanzania — ikitoa vyumba vya starehe, bwawa la kuogelea la ndani, mkahawa, na ukarimu wa joto wa Kitanzania kwa umbali wa kilomita 1.9 tu kutoka Uwanja wa Ndege wa Mbeya.",
     /* --- auth modal --- */
@@ -164,18 +164,18 @@
     "A spacious double bed-room for families — four beds, a private kitchen and dining area, and a balcony with Mbeya views.":"Chumba kikubwa cha vitanda kwa familia — vitanda vinne, jiko binafsi na sehemu ya kulia, na baraza lenye mandhari ya Mbeya.",
     "Comfortable and affordable — a single bed, a cozy sofa and a dressing table for a restful stay.":"Starehe na bei nafuu — kitanda kimoja, kochi la starehe na meza ya kujipamba kwa malazi ya raha.",
     "Our best-value room with a private veranda — a simple, comfortable single bedroom with the essentials.":"Chumba chetu cha thamani bora chenye veranda binafsi — chumba rahisi cha starehe chenye mahitaji muhimu.",
-    "Every room at Mbeya Forest Hill Motel includes complimentary Wi-Fi, free airport shuttle, free private parking, and access to our pool and sauna — comfort comes standard, every night.":"Kila chumba katika Mbeya Forest Hill Motel kinajumuisha Wi-Fi ya bure, usafiri wa bure wa uwanja wa ndege, maegesho binafsi ya bure, na matumizi ya bwawa na sauna — starehe ni kawaida, kila usiku.",
+    "Every room at Mbeya Forest Hill Hotel & Motel Tanzania includes complimentary Wi-Fi, free airport shuttle, free private parking, and access to our pool and sauna — comfort comes standard, every night.":"Kila chumba katika Mbeya Forest Hill Hotel & Motel Tanzania kinajumuisha Wi-Fi ya bure, usafiri wa bure wa uwanja wa ndege, maegesho binafsi ya bure, na matumizi ya bwawa na sauna — starehe ni kawaida, kila usiku.",
     /* --- home (index) --- */
     "Mbeya, Tanzania":"Mbeya, Tanzania","Your Comfort Retreat in the Heart of":"Mahali Pako pa Starehe Katikati ya",
-    "Mbeya Hospitality At It's Best":"Ukarimu wa Mbeya kwa Kiwango Bora Zaidi",
-    "Nestled in the lush hills of Mbeya, Forest Hill Motel offers air-conditioned rooms, an indoor pool, sauna, fitness centre, and a full buffet breakfast — just 1.9 km from Mbeya Airport.":"Iliyoko katika milima ya kijani ya Mbeya, Forest Hill Motel inatoa vyumba vyenye kiyoyozi, bwawa la ndani, sauna, kituo cha mazoezi, na kifungua kinywa kamili cha buffet — kwa umbali wa kilomita 1.9 tu kutoka Uwanja wa Ndege wa Mbeya.",
+    "Mbeya Hospitality at Its Best":"Ukarimu wa Mbeya kwa Kiwango Bora Zaidi",
+    "Nestled in the lush hills of Mbeya, Forest Hill Hotel & Motel offers air-conditioned rooms, an indoor pool, sauna, fitness centre, and a full buffet breakfast — just 1.9 km from Mbeya Airport.":"Iliyoko katika milima ya kijani ya Mbeya, Forest Hill Hotel & Motel inatoa vyumba vyenye kiyoyozi, bwawa la ndani, sauna, kituo cha mazoezi, na kifungua kinywa kamili cha buffet — kwa umbali wa kilomita 1.9 tu kutoka Uwanja wa Ndege wa Mbeya.",
     "Explore Rooms":"Tazama Vyumba","Free Airport Shuttle · Free WiFi · Free Parking":"Usafiri wa Bure wa Uwanja wa Ndege · WiFi Bure · Maegesho Bure",
     "Scroll to explore":"Sogeza kuona zaidi","Check — In":"Kuingia","Check — Out":"Kutoka","Check Availability":"Angalia Upatikanaji",
     "01 Adult":"Mtu mzima 01","02 Adults":"Watu wazima 02","03 Adults":"Watu wazima 03","04 Adults":"Watu wazima 04",
     "0 Children":"Watoto 0","01 Child":"Mtoto 01","02 Children":"Watoto 02","03 Children":"Watoto 03",
     "1 Guest":"Mgeni 1","2 Guests":"Wageni 2","3 Guests":"Wageni 3","4 Guests":"Wageni 4",
     "Welcome to Forest Hill":"Karibu Forest Hill","Comfortable accommodations in the hills of Mbeya.":"Malazi ya starehe katika milima ya Mbeya.",
-    "Mbeya Forest Hill Motel offers family rooms with air-conditioning, private bathrooms, and garden views. Every room includes a work desk, TV, and free WiFi — designed for both leisure travellers and business guests.":"Mbeya Forest Hill Motel inatoa vyumba vya familia vyenye kiyoyozi, bafu binafsi, na mandhari ya bustani. Kila chumba kina meza ya kazi, TV, na WiFi ya bure — vimeundwa kwa wasafiri wa mapumziko na wageni wa biashara.",
+    "Mbeya Forest Hill Hotel & Motel Tanzania offers family rooms with air-conditioning, private bathrooms, and garden views. Every room includes a work desk, TV, and free WiFi — designed for both leisure travellers and business guests.":"Mbeya Forest Hill Hotel & Motel Tanzania inatoa vyumba vya familia vyenye kiyoyozi, bafu binafsi, na mandhari ya bustani. Kila chumba kina meza ya kazi, TV, na WiFi ya bure — vimeundwa kwa wasafiri wa mapumziko na wageni wa biashara.",
     "Enjoy our indoor swimming pool, sauna, fitness room, restaurant, bar, and evening entertainment. Free airport shuttle and private parking on site.":"Furahia bwawa letu la ndani la kuogelea, sauna, chumba cha mazoezi, mkahawa, baa, na burudani za jioni. Usafiri wa bure wa uwanja wa ndege na maegesho binafsi hapa hapa.",
     "Discover Our Story":"Gundua Hadithi Yetu","Accommodation":"Malazi","Rooms for every type of stay.":"Vyumba kwa kila aina ya malazi.",
     "Five room types to suit solo travellers, couples, and families — all with air-conditioning, private bathrooms, TV, and free WiFi.":"Aina tano za vyumba zinazofaa wasafiri wa peke yao, wapenzi, na familia — vyote vyenye kiyoyozi, bafu binafsi, TV, na WiFi ya bure.",
@@ -205,11 +205,11 @@
     "Perfect for a family stopover":"Bora kwa mapumziko ya familia",
     "We stayed two nights with three kids. The family room was spacious and the children loved the playground area. Pets were also welcome, which helped us greatly.":"Tulikaa usiku mbili na watoto watatu. Chumba cha familia kilikuwa pana na watoto walipenda eneo la michezo. Wanyama vipenzi pia walikaribishwa, jambo lililotusaidia sana.",
     "Stay in touch":"Endelea kuwasiliana","Stay informed about our latest offers":"Pata taarifa za ofa zetu mpya",
-    "Join our mailing list for special rates, seasonal packages, and news from Mbeya Forest Hill Motel.":"Jiunge na orodha yetu ya barua kwa bei maalum, vifurushi vya msimu, na habari kutoka Mbeya Forest Hill Motel.",
+    "Join our mailing list for special rates, seasonal packages, and news from Mbeya Forest Hill Hotel & Motel Tanzania.":"Jiunge na orodha yetu ya barua kwa bei maalum, vifurushi vya msimu, na habari kutoka Mbeya Forest Hill Hotel & Motel Tanzania.",
     "Subscribe":"Jiunge","Subscribed ✓":"Umejiunge ✓",
     /* --- about --- */
     "Comfort and convenience in the hills of Mbeya":"Starehe na urahisi katika milima ya Mbeya",
-    "Located just 1.9 kilometres from Mbeya Airport, Mbeya Forest Hill Motel is your home away from home in Southern Tanzania — welcoming families, business travellers, and visitors alike.":"Iliyoko kwa umbali wa kilomita 1.9 tu kutoka Uwanja wa Ndege wa Mbeya, Mbeya Forest Hill Motel ni nyumba yako mbali na nyumbani Kusini mwa Tanzania — ikikaribisha familia, wasafiri wa biashara, na wageni wote.",
+    "Located just 1.9 kilometres from Mbeya Airport, Mbeya Forest Hill Hotel & Motel Tanzania is your home away from home in Southern Tanzania — welcoming families, business travellers, and visitors alike.":"Iliyoko kwa umbali wa kilomita 1.9 tu kutoka Uwanja wa Ndege wa Mbeya, Mbeya Forest Hill Hotel & Motel Tanzania ni nyumba yako mbali na nyumbani Kusini mwa Tanzania — ikikaribisha familia, wasafiri wa biashara, na wageni wote.",
     "Children of All Ages Welcome":"Watoto wa Rika Zote Wanakaribishwa",
     "No age restriction at check-in. Children are warmly welcomed, and pets stay free — making Forest Hill a true home for the whole family.":"Hakuna kizuizi cha umri wakati wa kuingia. Watoto wanakaribishwa kwa joto, na wanyama vipenzi hukaa bure — kuifanya Forest Hill kuwa nyumba ya kweli kwa familia nzima.",
     "Full Room Amenities":"Huduma Kamili za Chumba",
@@ -218,10 +218,10 @@
     "On-site facilities including pool, sauna, gym, restaurant, and bar.":"Huduma za hapa hapa zikiwemo bwawa, sauna, mazoezi, mkahawa, na baa.",
     "From Mbeya Airport — with our complimentary shuttle running daily.":"Kutoka Uwanja wa Ndege wa Mbeya — na usafiri wetu wa bure unaofanya kazi kila siku.",
     "Our story":"Hadithi yetu","A welcoming retreat in the heart of Southern Tanzania.":"Mahali pa kukaribisha katikati ya Kusini mwa Tanzania.",
-    "Mbeya Forest Hill Motel was built to offer travellers in Mbeya a comfortable, well-equipped base — whether arriving for business, family visits, or to explore the stunning landscapes of Southern Tanzania's highlands.":"Mbeya Forest Hill Motel ilijengwa kuwapa wasafiri wa Mbeya makazi ya starehe yenye vifaa kamili — iwe wanafika kwa biashara, ziara za familia, au kuchunguza mandhari ya kuvutia ya milima ya Kusini mwa Tanzania.",
+    "Mbeya Forest Hill Hotel & Motel Tanzania was built to offer travellers in Mbeya a comfortable, well-equipped base — whether arriving for business, family visits, or to explore the stunning landscapes of Southern Tanzania's highlands.":"Mbeya Forest Hill Hotel & Motel Tanzania ilijengwa kuwapa wasafiri wa Mbeya makazi ya starehe yenye vifaa kamili — iwe wanafika kwa biashara, ziara za familia, au kuchunguza mandhari ya kuvutia ya milima ya Kusini mwa Tanzania.",
     "From our indoor pool and fitness centre to our buffet restaurant and free airport shuttle, every detail is designed to make your stay easy and enjoyable.":"Kuanzia bwawa letu la ndani na kituo cha mazoezi hadi mkahawa wa buffet na usafiri wa bure wa uwanja wa ndege, kila kipengele kimeundwa kufanya malazi yako rahisi na ya kufurahisha.",
     "Why choose us":"Kwa nini utuchague","Everything included — no hidden extras":"Kila kitu kimejumuishwa — hakuna gharama za siri",
-    "At Forest Hill Motel, our most popular amenities come standard with every room booking — so you can relax without surprises at checkout.":"Katika Forest Hill Motel, huduma zetu maarufu zaidi huja kama kawaida na kila hifadhi ya chumba — ili upumzike bila mshangao wakati wa kuondoka.",
+    "At Forest Hill Hotel & Motel, our most popular amenities come standard with every room booking — so you can relax without surprises at checkout.":"Katika Forest Hill Hotel & Motel, huduma zetu maarufu zaidi huja kama kawaida na kila hifadhi ya chumba — ili upumzike bila mshangao wakati wa kuondoka.",
     "Buffet breakfast included":"Kifungua kinywa cha buffet kimejumuishwa","Free WiFi in all rooms":"WiFi ya bure katika vyumba vyote",
     "Indoor swimming pool":"Bwawa la ndani la kuogelea","Free private parking":"Maegesho binafsi ya bure","Pets welcome — no charge":"Wanyama vipenzi wanakaribishwa — bila malipo",
     "Read More":"Soma Zaidi","Read More →":"Soma Zaidi →","What we offer":"Tunachotoa","A house of many pleasures":"Nyumba ya raha nyingi",
@@ -273,7 +273,7 @@
     "Tell us how we can help…":"Tuambie tunavyoweza kukusaidia…",
     /* --- experiences --- */
     "Facilities & Experiences":"Huduma & Starehe","Everything You Need, On Site":"Kila Unachohitaji, Hapa Hapa",
-    "From the indoor pool and sauna to the restaurant, fitness centre, and conference room — Mbeya Forest Hill Motel has all the facilities to make your stay complete.":"Kuanzia bwawa la ndani na sauna hadi mkahawa, kituo cha mazoezi, na chumba cha mikutano — Mbeya Forest Hill Motel ina huduma zote za kufanya malazi yako kuwa kamili.",
+    "From the indoor pool and sauna to the restaurant, fitness centre, and conference room — Mbeya Forest Hill Hotel & Motel Tanzania has all the facilities to make your stay complete.":"Kuanzia bwawa la ndani na sauna hadi mkahawa, kituo cha mazoezi, na chumba cha mikutano — Mbeya Forest Hill Hotel & Motel Tanzania ina huduma zote za kufanya malazi yako kuwa kamili.",
     "01 — Wellness":"01 — Afya","Relax and recharge at any time":"Pumzika na ujiongeze nguvu wakati wowote",
     "Dive into our heated indoor swimming pool or melt away the day's journey in the sauna. The pool and terrace area are available to all guests throughout their stay — no additional booking required.":"Ingia katika bwawa letu la ndani la maji ya moto au ondoa uchovu wa safari ya siku katika sauna. Bwawa na eneo la roshani vinapatikana kwa wageni wote katika kipindi chote cha malazi — hakuna hifadhi ya ziada inayohitajika.",
     "Indoor Heated Pool":"Bwawa la Ndani la Moto","Sauna":"Sauna","Terrace":"Roshani","Spa Bath":"Bafu la Spa","Book Your Stay →":"Weka Malazi Yako →",
@@ -412,8 +412,8 @@
             <span class="brand-mark">Forest Hill</span>
             <p style="margin-top:1.2rem;max-width:34ch;line-height:1.6">Nestled in the hills of Mbeya, Tanzania — offering comfortable rooms, an indoor pool, restaurant, and warm Tanzanian hospitality just 1.9 km from Mbeya Airport.</p>
             <div class="footer-social">
-              <a href="https://www.facebook.com/profile.php?id=61586840549038" target="_blank" rel="noopener noreferrer" aria-label="Facebook">${ICON.fb}</a>
-              <a href="https://www.instagram.com/mbeyaforesthillmotel/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${ICON.ig}</a>
+              <a href="https://www.facebook.com/profile.php?id=61581701621124#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">${ICON.fb}</a>
+              <a href="https://www.instagram.com/mbeya_forest_hill_motell/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${ICON.ig}</a>
               <!-- <a href="#" aria-label="Twitter">${ICON.tw}</a> -->
               <!-- <a href="#" aria-label="Tripadvisor">${ICON.ta}</a> -->
             </div>
@@ -439,7 +439,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© 2026 Mbeya Forest Hill Motel. All rights reserved.</span>
+          <span>© 2026 Mbeya Forest Hill Hotel & Motel Tanzania. All rights reserved.</span>
           <div style="display:flex;gap:1.6rem">
             <a href="#">Terms of Use</a><a href="#">Privacy Policy</a><a href="contact.html">Find Us</a>
           </div>
@@ -513,7 +513,7 @@
       b.addEventListener('click', e=>{ e.preventDefault(); if(window.openAuth) window.openAuth(b.dataset.openAuth); });
     });
 
-    initReveal(); initCounters(); initBookingDefaults(); initImageFallbacks(); buildTweakPanel(); initI18n(); initHeroTitleRotate();
+    initReveal(); initCounters(); initBookingDefaults(); buildTweakPanel(); initI18n(); initHeroTitleRotate();
   }
 
   /* ---------- hero title — swipe between headline & slogan ---------- */
@@ -600,48 +600,6 @@
       });
     },{ threshold:.5 });
     nums.forEach(n=>io.observe(n));
-  }
-
-  /* ---------- external image fallbacks ----------
-     Every photo loaded from a remote host (Booking.com cf.bstatic.com and
-     the 7iquid demo CDN) has a local copy stored in assets/images/external/.
-     The remote URL stays the primary source; if it ever fails to load
-     (taken down, host offline, blocked), we silently swap in the local copy.
-     Matching is by filename, so query strings on the remote URL don't matter. */
-  function initImageFallbacks(){
-    const LOCAL_DIR = 'assets/images/external/';
-    const FALLBACKS = {
-      'h4-img6.webp':'h4-img6.webp',
-      'h4-img7.webp':'h4-img7.webp',
-      'h4-img8.webp':'h4-img8.webp',
-      'standard-room-1.jpg':'standard-room-1.jpg',
-      'img1-ab-h1.webp':'img1-ab-h1.webp',
-      'visa_inc_logo.svg':'visa_inc_logo.svg',
-      'mastercard-logo.svg':'mastercard-logo.svg',
-      'americanexpresslogo.svg':'americanexpresslogo.svg',
-      'paypal_logo.svg':'paypal_logo.svg',
-      '743884551.jpg':'743884551.jpg',
-      '743884568.jpg':'743884568.jpg',
-      '743996654.jpg':'743996654.jpg',
-      '743884562.jpg':'743884562.jpg',
-      '744378060.jpg':'744378060.jpg',
-      '743884475.jpg':'743884475.jpg',
-    };
-    function localFor(src){
-      if(!src) return null;
-      const clean = src.split('?')[0].split('#')[0];
-      if(clean.indexOf(LOCAL_DIR) !== -1) return null; // already local — avoid loops
-      const name = clean.substring(clean.lastIndexOf('/')+1);
-      return FALLBACKS[name] ? LOCAL_DIR + FALLBACKS[name] : null;
-    }
-    function swap(img){ const l = localFor(img.getAttribute('src')); if(l) img.src = l; }
-    // catch any future load failures (capture phase — error events don't bubble)
-    document.addEventListener('error', e=>{ const t=e.target; if(t && t.tagName==='IMG') swap(t); }, true);
-    // handle images that already errored before this script ran, and wire the rest
-    document.querySelectorAll('img').forEach(img=>{
-      if(img.complete && img.naturalWidth===0 && img.getAttribute('src')) swap(img);
-      else img.addEventListener('error', ()=>swap(img), {once:true});
-    });
   }
 
   /* ---------- booking widget defaults ---------- */

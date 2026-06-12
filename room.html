@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Room Detail — Mbeya Forest Hill Motel</title>
-<script>window.CARMELINA_SEO={title:'Room Detail — Mbeya Forest Hill Motel',description:'View room details and book your stay at Mbeya Forest Hill Motel in Mbeya, Tanzania.',path:'room.html',breadcrumb:[{name:'Home',path:'index.html'},{name:'Rooms',path:'rooms.html'},{name:'Room',path:'room.html'}]};</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Room Detail — Mbeya Forest Hill Hotel & Motel Tanzania</title>
+<script>window.CARMELINA_SEO={title:'Room Detail — Mbeya Forest Hill Hotel & Motel Tanzania',description:'View room details and book your stay at Mbeya Forest Hill Hotel & Motel Tanzania, one of the top hotels and motels in Mbeya.',path:'room.html',breadcrumb:[{name:'Home',path:'index.html'},{name:'Rooms',path:'rooms.html'},{name:'Room',path:'room.html'}]};</script>
 <script src="assets/seo.js"></script>
 <link rel="stylesheet" href="assets/site.css">
 <style>
@@ -57,7 +59,7 @@
 <div data-site-header></div>
 
 <section class="page-hero" style="min-height:42vh" data-screen-label="Room Detail — Hero">
-  <img class="bg" id="heroBg" src="https://demo.7iquid.com/carmelina/wp-content/uploads/2023/04/standard-room-1.jpg" alt="">
+  <img class="bg" id="heroBg" src="assets/images/external/standard-room-hero.jpg" alt="" fetchpriority="high">
   <div class="wrap">
     <span class="eyebrow light">Accommodation</span>
     <h1 class="display fw-light" id="heroTitle" style="margin-top:1rem">Standard Room</h1>
@@ -88,7 +90,7 @@
 
         <div class="detail-desc">
           <p class="lede" id="roomDesc">Recently refurbished in an individual and elegant style, this room offers the quiet comfort of a luxurious retreat.</p>
-          <p class="muted" style="margin-top:1rem">Every room at Mbeya Forest Hill Motel includes complimentary Wi-Fi, free airport shuttle, free private parking, and access to our pool and sauna — comfort comes standard, every night.</p>
+          <p class="muted" style="margin-top:1rem">Every room at Mbeya Forest Hill Hotel & Motel Tanzania includes complimentary Wi-Fi, free airport shuttle, free private parking, and access to our pool and sauna — comfort comes standard, every night.</p>
 
           <h3 class="display">Room Features</h3>
           <ul class="amen-grid" id="amenList"></ul>
@@ -99,9 +101,9 @@
       <aside class="book-panel">
         <div class="bp-price"><span id="bpPrice">50</span> TZS <small>/ night</small></div>
         <div style="color:var(--accent);letter-spacing:.16em;font-size:.82rem;margin:.4rem 0 1.4rem">★★★★★ <span style="color:var(--ink-faint);letter-spacing:.04em">· 248 reviews</span></div>
-        <div class="bp-field"><label>Check — In</label><input type="text" data-checkin readonly></div>
-        <div class="bp-field"><label>Check — Out</label><input type="text" data-checkout readonly></div>
-        <div class="bp-field"><label>Guests</label><select id="bpGuests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select></div>
+        <div class="bp-field"><label for="bpCheckin">Check — In</label><input type="text" id="bpCheckin" data-checkin readonly></div>
+        <div class="bp-field"><label for="bpCheckout">Check — Out</label><input type="text" id="bpCheckout" data-checkout readonly></div>
+        <div class="bp-field"><label for="bpGuests">Guests</label><select id="bpGuests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select></div>
         <div class="bp-summary">
           <div class="row"><span><span class="bpN">50</span> TZS × <span id="bpNights">2</span> nights</span><span><span id="bpSub">100</span> TZS</span></div>
           <div class="row"><span>Service &amp; taxes (incl.)</span><span><span id="bpTax">18</span> TZS</span></div>
@@ -203,8 +205,8 @@ window.CARMELINA_ROOMS = [
 
   if(window.CARMELINA_UPDATE_SEO){
     window.CARMELINA_UPDATE_SEO({
-      title: r.name + ' — Mbeya Forest Hill Motel',
-      description: r.desc + ' From ' + money(r.price) + ' TZS per night at Mbeya Forest Hill Motel.',
+      title: r.name + ' — Mbeya Forest Hill Hotel & Motel Tanzania',
+      description: r.desc + ' From ' + money(r.price) + ' TZS per night at Mbeya Forest Hill Hotel & Motel Tanzania.',
       path: 'room.html?room=' + r.slug,
       image: r.img,
       breadcrumb: [
@@ -229,7 +231,7 @@ window.CARMELINA_ROOMS = [
       },
     });
   } else {
-    document.title = r.name + ' — Mbeya Forest Hill Motel';
+    document.title = r.name + ' — Mbeya Forest Hill Hotel & Motel Tanzania';
   }
   document.getElementById('heroBg').src=r.img;
   document.getElementById('heroTitle').textContent=r.name;
@@ -251,7 +253,7 @@ window.CARMELINA_ROOMS = [
   // gallery
   const gMain=document.getElementById('gMain'), gThumbs=document.getElementById('gThumbs');
   gMain.src=r.gal[0];
-  gThumbs.innerHTML=r.gal.map((g,i)=>`<button class="${i===0?'active':''}" data-i="${i}"><img src="${g}" alt=""></button>`).join('');
+  gThumbs.innerHTML=r.gal.map((g,i)=>`<button class="${i===0?'active':''}" data-i="${i}"><img src="${g}" alt="" loading="lazy"></button>`).join('');
   let current=0;
   function setMain(i){ current=i;
     gThumbs.querySelectorAll('button').forEach((x,xi)=>x.classList.toggle('active',xi===i));
@@ -285,7 +287,7 @@ window.CARMELINA_ROOMS = [
   // related
   document.getElementById('related').innerHTML=rooms.filter(x=>x.slug!==r.slug).slice(0,3).map(x=>`
     <article class="room-card">
-      <div class="media"><span class="price-tag">From <b>${money(x.price)}</b> TZS / night</span><img src="${x.img}" alt="${x.name}"></div>
+      <div class="media"><span class="price-tag">From <b>${money(x.price)}</b> TZS / night</span><img src="${x.img}" alt="${x.name}" loading="lazy"></div>
       <div class="body">
         <h3 class="display"><a href="room.html?room=${x.slug}">${x.name}</a></h3>
         <div class="room-meta"><span><span class="ic">◆</span> <b>${x.cap}</b> Guests</span><span><span class="ic">◆</span> <b>${x.beds}</b> Bed${x.beds>1?'s':''}</span><span><span class="ic">◆</span> ${x.features[1]}</span></div>

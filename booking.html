@@ -12,8 +12,10 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reserve Your Stay — Mbeya Forest Hill Motel</title>
-<script>window.CARMELINA_SEO={title:'Book a Room — Mbeya Forest Hill Motel',description:'Reserve your stay at Mbeya Forest Hill Motel online. Choose your dates, select a room, and send a booking request. Payment collected at check-in.',path:'booking.html',breadcrumb:[{name:'Home',path:'index.html'},{name:'Book',path:'booking.html'}]};</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Reserve Your Stay — Mbeya Forest Hill Hotel & Motel Tanzania</title>
+<script>window.CARMELINA_SEO={title:'Book a Room — Mbeya Forest Hill Hotel & Motel Tanzania',description:'Reserve your stay at Mbeya Forest Hill Hotel & Motel Tanzania online. Choose your dates, select a room, and send a booking request. Payment collected at check-in.',path:'booking.html',breadcrumb:[{name:'Home',path:'index.html'},{name:'Book',path:'booking.html'}]};</script>
 <script src="assets/seo.js"></script>
 <link rel="stylesheet" href="assets/site.css">
 <style>
@@ -112,10 +114,10 @@
           <h2 class="display">When would you like to stay?</h2>
           <p class="sub">Select your arrival and departure dates and the number of guests.</p>
           <div class="frm-grid">
-            <div class="frm"><label>Check — In</label><input type="date" id="ci"></div>
-            <div class="frm"><label>Check — Out</label><input type="date" id="co"></div>
-            <div class="frm"><label>Adults</label><select id="adults"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
-            <div class="frm"><label>Children</label><select id="children"><option selected>0</option><option>1</option><option>2</option><option>3</option></select></div>
+            <div class="frm"><label for="ci">Check — In</label><input type="date" id="ci"></div>
+            <div class="frm"><label for="co">Check — Out</label><input type="date" id="co"></div>
+            <div class="frm"><label for="adults">Adults</label><select id="adults"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
+            <div class="frm"><label for="children">Children</label><select id="children"><option selected>0</option><option>1</option><option>2</option><option>3</option></select></div>
           </div>
           <div class="step-actions"><span></span><button class="btn btn--accent" data-next>Continue →</button></div>
         </div>
@@ -133,11 +135,11 @@
           <h2 class="display">Guest details</h2>
           <p class="sub">Tell us who's staying so we can prepare everything for your arrival. Payment is collected at check-in.</p>
           <div class="frm-grid">
-            <div class="frm"><label>First Name</label><input type="text" id="fname" placeholder="Jane"></div>
-            <div class="frm"><label>Last Name</label><input type="text" id="lname" placeholder="Doe"></div>
-            <div class="frm"><label>Email</label><input type="email" id="email" placeholder="jane@email.com"></div>
-            <div class="frm"><label>Phone</label><input type="tel" id="phone" placeholder="+1 555 000 0000"></div>
-            <div class="frm full"><label>Special Requests</label><textarea id="notes" placeholder="Early check-in, dietary needs, celebration…"></textarea></div>
+            <div class="frm"><label for="fname">First Name</label><input type="text" id="fname" placeholder="Jane"></div>
+            <div class="frm"><label for="lname">Last Name</label><input type="text" id="lname" placeholder="Doe"></div>
+            <div class="frm"><label for="email">Email</label><input type="email" id="email" placeholder="jane@email.com"></div>
+            <div class="frm"><label for="phone">Phone</label><input type="tel" id="phone" placeholder="+1 555 000 0000"></div>
+            <div class="frm full"><label for="notes">Special Requests</label><textarea id="notes" placeholder="Early check-in, dietary needs, celebration…"></textarea></div>
           </div>
           <div class="step-actions"><button class="btn btn--outline" data-prev>← Back</button><button class="btn btn--accent" data-next>Confirm Booking</button></div>
         </div>
@@ -147,16 +149,16 @@
           <h2 class="display">Payment</h2>
           <p class="sub">You won't be charged until check-in. Cancellation is free up to 24h before arrival.</p>
           <div class="pay-cards">
-            <img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2022/08/visa_inc_logo.svg" alt="Visa">
-            <img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2022/08/mastercard-logo.svg" alt="Mastercard">
-            <img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2022/08/americanexpresslogo.svg" alt="Amex">
-            <img src="https://demo.7iquid.com/carmelina/wp-content/uploads/2022/08/paypal_logo.svg" alt="Paypal">
+            <img src="assets/images/external/visa-logo.svg" alt="Visa" width="80" height="26" loading="lazy">
+            <img src="assets/images/external/mastercard-logo.svg" alt="Mastercard" width="34" height="26" loading="lazy">
+            <img src="assets/images/external/amex-logo.svg" alt="Amex" width="96" height="26" loading="lazy">
+            <img src="assets/images/external/paypal-logo.svg" alt="Paypal" width="98" height="26" loading="lazy">
           </div>
           <div class="frm-grid">
-            <div class="frm full"><label>Cardholder Name</label><input type="text" placeholder="Jane Doe"></div>
-            <div class="frm full"><label>Card Number</label><input type="text" placeholder="0000 0000 0000 0000"></div>
-            <div class="frm"><label>Expiry</label><input type="text" placeholder="MM / YY"></div>
-            <div class="frm"><label>CVC</label><input type="text" placeholder="123"></div>
+            <div class="frm full"><label for="cardName">Cardholder Name</label><input type="text" id="cardName" placeholder="Jane Doe"></div>
+            <div class="frm full"><label for="cardNumber">Card Number</label><input type="text" id="cardNumber" placeholder="0000 0000 0000 0000"></div>
+            <div class="frm"><label for="cardExpiry">Expiry</label><input type="text" id="cardExpiry" placeholder="MM / YY"></div>
+            <div class="frm"><label for="cardCvc">CVC</label><input type="text" id="cardCvc" placeholder="123"></div>
           </div>
           <div class="step-actions"><button class="btn btn--outline" data-prev>← Back</button><button class="btn btn--accent" data-next>Confirm Booking</button></div>
         </div>
@@ -181,7 +183,7 @@
       <!-- SUMMARY -->
       <aside class="summary">
         <h3>Your Reservation</h3>
-        <div class="sum-img"><img id="sImg" src="./assets/images/gallery/rooms-suite-bed.jpg" alt=""></div>
+        <div class="sum-img"><img id="sImg" src="./assets/images/gallery/rooms-suite-bed.jpg" alt="" width="512" height="768" loading="lazy"></div>
         <div class="sum-room" id="sRoom">VIP Suite</div>
         <div class="sum-row" style="margin-top:.4rem"><span id="sView" style="color:var(--accent)">2 Beds · Sleeps 4</span></div>
         <div class="sum-div"></div>
@@ -248,7 +250,7 @@ window.CARMELINA_ROOMS = [
   // room picker
   document.getElementById('roomPick').innerHTML=rooms.map(r=>`
     <label class="pick ${r.slug===state.room.slug?'sel':''}" data-slug="${r.slug}">
-      <img src="${r.img}" alt="${r.name}">
+      <img src="${r.img}" alt="${r.name}" loading="lazy">
       <span><span class="pn">${r.name}</span><br><span class="pm"><b>${r.cap}</b> guests · <b>${r.beds}</b> bed${r.beds>1?'s':''} · ${r.features[1]}</span></span>
       <span class="pp"><b>${money(r.price)}</b> TZS<small>/ night</small></span>
     </label>`).join('');
@@ -297,8 +299,8 @@ window.CARMELINA_ROOMS = [
     btn.textContent='Confirming…';
     try {
       await window.CARMELINA_FORMS.send({
-        _subject: 'New Reservation ' + ref + ' — Mbeya Forest Hill Motel',
-        _autoresponse: 'Thank you for your reservation request at Mbeya Forest Hill Motel (Ref: ' + ref + '). Our team will contact you shortly to confirm your stay.',
+        _subject: 'New Reservation ' + ref + ' — Mbeya Forest Hill Hotel & Motel Tanzania',
+        _autoresponse: 'Thank you for your reservation request at Mbeya Forest Hill Hotel & Motel Tanzania (Ref: ' + ref + '). Our team will contact you shortly to confirm your stay.',
         'Booking Reference': ref,
         'Guest Name': fname + ' ' + lname,
         email: email,

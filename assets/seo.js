@@ -1,8 +1,8 @@
-/* Mbeya Forest Hill Motel — shared SEO (reads window.CARMELINA_SEO per page) */
+/* Mbeya Forest Hill Hotel & Motel Tanzania — shared SEO (reads window.CARMELINA_SEO per page) */
 (function(){
   const cfg = window.CARMELINA_SEO || {};
   const SITE = {
-    name: 'Mbeya Forest Hill Motel',
+    name: 'Mbeya Forest Hill Hotel & Motel Tanzania',
     email: 'mbeyaforesthillmotel2025@gmail.com',
     phone: '+255718541688',
     defaultImage: './assets/images/hero-section-image.jpg',
@@ -16,8 +16,8 @@
       country: 'TZ',
     },
     sameAs: [
-      'https://www.facebook.com/profile.php?id=61586840549038',
-      'https://www.instagram.com/mbeyaforesthillmotel/',
+      'https://www.facebook.com/profile.php?id=61581701621124#',
+      'https://www.instagram.com/mbeya_forest_hill_motell/',
     ],
   };
 
@@ -71,7 +71,7 @@
     const desc = cfg.description || 'Comfortable hotel in Mbeya, Tanzania — air-conditioned rooms, indoor pool, restaurant, and free airport shuttle near Mbeya Airport.';
     const url = pageUrl(cfg.path);
     const image = absUrl(cfg.image || SITE.defaultImage);
-    const keywords = cfg.keywords || 'Mbeya hotel, Forest Hill Motel, Mbeya accommodation, Tanzania hotel, Mbeya airport hotel, hotel Mbeya Tanzania';
+    const keywords = cfg.keywords || 'Mbeya hotels, best hotels in Mbeya, Mbeya motels, Mbeya Forest Hill Hotel & Motel, Mbeya accommodation, Tanzania hotel, Mbeya airport hotel, hotel Mbeya Tanzania, Airbnb Mbeya';
 
     document.title = title;
     setMeta('description', desc);
